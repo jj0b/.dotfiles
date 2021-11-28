@@ -1,0 +1,10 @@
+[user]
+	name = Jason Jōb
+	email = jason.allan.job@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+    editor = nvim
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
