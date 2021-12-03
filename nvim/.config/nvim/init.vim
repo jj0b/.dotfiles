@@ -59,6 +59,9 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 call plug#end()
 
+" require plugin configs
+lua require('jj0b')
+
 " --- Colors
 
 set background=dark
