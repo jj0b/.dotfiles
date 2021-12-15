@@ -1,5 +1,9 @@
 # install nix
+#if [[ $OSTYPE == 'darwin'* ]]; then
+# curl -L https://releases.nixos.org/nix/nix-2.4pre-rc1/install | sh
+#else
 curl -L https://nixos.org/nix/install | sh
+#fi
 
 # source nix 
 . ~/.nix-profile/etc/profile.d/nix.sh
@@ -16,13 +20,18 @@ nix-env -iA \
         nixpkgs.fzf \
         nixpkgs.ripgrep \
         nixpkgs.bat \
-        nixpkgs.direnv
+        nixpkgs.direnv \
+        nixpkgs.kitty \
+        nixpkgs.gotop \
+        nixpkgs.lsd
 
 # stow
 stow git
 stow zsh
 stow tmux
 stow nvim
+stow kitty
+stow lsd
 
 # add zsh to valid login shells
 command -v zsh | sudo tee -a /etc/shells

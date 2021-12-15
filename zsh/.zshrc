@@ -14,12 +14,32 @@ export NVM_COMPLETION=true
 source ~/.zsh_plugins.sh
 
 # aliases
+# better ls
 alias ls='ls -al'
+
+# use neovim
 alias vim='nvim'
 alias vi='nvim'
 
+alias vimrc='vim ${HOME}/.config/nvim/init.vim'
+alias cat='bat'
+alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
+
+# hardhat 
+alias nhc='npx hardhat compile'
+alias nhn='npx hardhat node'
+alias nhrl='npx hardhat run scripts/deploy.js --network localhost'
+
+# directories
+
+# alias worlds ='cd ~/Code/dApp/worlds-project'
+
+# jupiter
+# alias jupiter='cd ~/Code/hypergiant/jupiter/jupiter-web'
+alias ys='yarn workspace @jupiter/server' 
+
 # use nix
-if [ -e /home/jason/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jason/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

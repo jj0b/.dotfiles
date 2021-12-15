@@ -22,11 +22,14 @@ set nowrap
 set splitbelow
 set splitright
 set hidden
-set scrolloff=999
+set scrolloff=8
+set sidescrolloff=8
 set noshowmode
 set updatetime=250 
 set encoding=UTF-8
 set mouse=a
+set list
+set listchars=tab:▸\ ,trail:·
 
 let g:netrw_banner=0
 
@@ -35,7 +38,8 @@ let g:netrw_banner=0
 call plug#begin('~/.config/nvim/plugged')
 
 " General
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+"Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'shaunsingh/nord.nvim'
 Plug 'nvim-lualine/lualine.nvim'     " Vim status line
 Plug 'kyazdani42/nvim-web-devicons'  " Devicons
 Plug 'machakann/vim-highlightedyank' " Highlight yanked text in vim
@@ -56,6 +60,9 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -65,7 +72,7 @@ lua require('jj0b')
 " --- Colors
 
 set background=dark
-colorscheme tokyonight
+colorscheme nord
 
 " --- Remaps
 
