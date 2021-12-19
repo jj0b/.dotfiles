@@ -14,44 +14,49 @@ export NVM_COMPLETION=true
 source ~/.zsh_plugins.sh
 
 # aliases
-# better ls
-# use gls for macOS dircolors
-alias ls='gls --color=always -G -al'
-# alias ls='ls -al'
 
 # use neovim
 alias vim='nvim'
 
 alias vimrc='vim ${HOME}/.config/nvim/init.vim'
-
 alias cheat='vim ${HOME}/.dotfiles/cheatsheet.md'
-
 alias cat='bat'
-
-alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 
 # hardhat 
 alias nhc='npx hardhat compile'
 alias nhn='npx hardhat node'
 alias nhrl='npx hardhat run scripts/deploy.js --network localhost'
 
-# worlds
-alias worlds='cd ~/Code/dApp/worlds-project'
+# macOS specific
+if [[ "$OSTYPE" = darwin* ]]; then
+    # use gls on macOS for dircolors
+    alias ls='gls --color=always -G -al'
 
-# jupiter
-alias jupiter='cd ~/Code/hypergiant/jupiter/jupiter-web'
-alias ys='yarn workspace @jupiter/server' 
+    alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
+    # worlds
+    alias worlds='cd ~/Code/dApp/worlds-project'
+    # jupiter
+    alias jupiter='cd ~/Code/hypergiant/jupiter/jupiter-web'
+    alias ys='yarn workspace @jupiter/server' 
+
+    # use nord-dircolors
+    # for macOS need to install coreutils (can do with brew) 
+    # then include this PATH and MANPATH
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+    
+    test -e ~/.dir_colors && eval `gdircolors -b ~/.dir_colors`
+else
+    # better ls
+    alias ls='ls -al'
+
+    # use node-dircolors
+    test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
+fi
 
 # use nix
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi 
 
-# use nord-dircolors
-# for macOS need to install coreutils (can do with brew) 
-# then include this PATH and MANPATH
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
-test -e ~/.dir_colors && eval `gdircolors -b ~/.dir_colors`
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -1,9 +1,9 @@
 # install nix
-#if [[ $OSTYPE == 'darwin'* ]]; then
-# curl -L https://releases.nixos.org/nix/nix-2.4pre-rc1/install | sh
-#else
-curl -L https://nixos.org/nix/install | sh
-#fi
+if [[ $OSTYPE == 'darwin'* ]]; then
+    curl -L https://releases.nixos.org/nix/nix-2.4pre-rc1/install | sh
+else
+    curl -L https://nixos.org/nix/install | sh
+fi
 
 # source nix 
 . ~/.nix-profile/etc/profile.d/nix.sh
