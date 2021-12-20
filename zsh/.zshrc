@@ -18,8 +18,9 @@ source ~/.zsh_plugins.sh
 # use neovim
 alias vim='nvim'
 
-alias vimrc='vim ${HOME}/.config/nvim/init.vim'
-alias cheat='vim ${HOME}/.dotfiles/cheatsheet.md'
+alias vrc='vim ${HOME}/.config/nvim/init.vim'
+alias zrc='vim ${HOME}/.zshrc'
+alias cs='vim ${HOME}/.dotfiles/cheatsheet.md'
 alias cat='bat'
 
 # hardhat 
