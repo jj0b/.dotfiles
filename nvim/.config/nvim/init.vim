@@ -154,11 +154,36 @@ colorscheme nord
 
 let mapleader = "\<space>"
 
-" Move between vim windows/buffers
+"-------------
+" Normal Mode
+"-------------
+
+" Open explore
+nnoremap <leader>e :Lexplore 30<CR>
+
+" Move between windows
 nnoremap <leader>h :wincmd h<Cr>
 nnoremap <leader>j :wincmd j<Cr>
 nnoremap <leader>k :wincmd k<Cr>
 nnoremap <leader>l :wincmd l<Cr>
+
+" Resize windows
+nnoremap <C-Up> :resize +2<CR>
+nnoremap <C-Down> :resize -2<CR>
+nnoremap <C-Left> :vertical resize -2<CR>
+nnoremap <C-Right> :vertical resize +2<CR>
+
+" Navigate buffers
+nnoremap <S-l> :bnext<CR>
+nnoremap <S-h> :bprevious<CR>
+
+" Move text up and down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+
+"-------------
+" Insert Mode
+"-------------
 
 " Quicky escape to normal mode from insert mode
 imap jj <esc>
@@ -166,3 +191,24 @@ imap jj <esc>
 " Easy insertion of a trailing ; or , from insert mode
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
+
+" Move text up and down
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+
+"-------------
+" Visual Mode
+"-------------
+
+" Stay in indent mode
+vnoremap < <gv
+vnoremap > >gv
+
+" Move text up and down
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Paste replace visual selection without copying it
+vnoremap p "_dP
+
+

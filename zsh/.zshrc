@@ -22,6 +22,7 @@ alias vrc='vim ${HOME}/.config/nvim/init.vim'
 alias zrc='vim ${HOME}/.zshrc'
 alias cs='vim ${HOME}/.dotfiles/cheatsheet.md'
 alias cat='bat'
+alias dot='cd ~/.dotfiles'
 
 # hardhat 
 alias nhc='npx hardhat compile'
