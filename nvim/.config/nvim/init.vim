@@ -64,6 +64,13 @@ set updatetime=250
 
 " Don't make a backup before overwriting on save
 set nobackup
+set nowritebackup
+
+" Give more space for displaying messages
+set cmdheight=2
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
 " Don't wrap text
 set nowrap
@@ -110,7 +117,7 @@ source ~/.config/nvim/plugins/fzf.vim
 "Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Autocompletion
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+source ~/.config/nvim/plugins/coc.vim
 "Plug 'hrsh7th/nvim-cmp'
 "Plug 'hrsh7th/cmp-nvim-lsp'
 "Plug 'onsails/lspkind-nvim'          " completion icons
@@ -122,9 +129,13 @@ source ~/.config/nvim/plugins/fzf.vim
 "Plug 'tpope/vim-fugitive'
 "Plug 'lewis6991/gitsigns.nvim'
 
+" Surround tools
 source ~/.config/nvim/plugins/vim-surround.vim
 "Plug 'tpope/vim-commentary'
 "Plug 'sheerun/vim-polyglot'
+
+" JSON comment syntax highlighting
+source ~/.config/nvim/plugins/vim-jsonrc.vim
 
 call plug#end()
 

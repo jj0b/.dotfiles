@@ -5,6 +5,7 @@
 ### general
 repeat command: .
 center cursor: zz
+view default keymaps: :h key-notation
 
 ### movement
 move: h,j,k,l
