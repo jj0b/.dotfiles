@@ -1,6 +1,7 @@
 # install nix
 if [[ $OSTYPE == 'darwin'* ]]; then
     curl -L https://releases.nixos.org/nix/nix-2.4pre-rc1/install | sh
+#    sh <(curl -L https://nixos.org/nix/install) --daemon
 else
     curl -L https://nixos.org/nix/install | sh
 fi
@@ -10,7 +11,7 @@ fi
 
 # install packages
 nix-env -iA \
-        nixpkgs.zsh \
+#        nixpkgs.zsh \
         nixpkgs.antibody \
         nixpkgs.git \
         nixpkgs.neovim \
@@ -20,9 +21,9 @@ nix-env -iA \
         nixpkgs.fzf \
         nixpkgs.ripgrep \
         nixpkgs.bat \
-        nixpkgs.direnv \
+#        nixpkgs.direnv \
         nixpkgs.kitty \
-        nixpkgs.gotop \
+#        nixpkgs.gotop \
         nixpkgs.lsd
 
 # stow
