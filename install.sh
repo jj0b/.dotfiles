@@ -22,12 +22,16 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install ripgrep
   brew install bat
   brew install coreutils
+  brew install redis
+  brew install postgresql
 
   echo "Installing Homebrew Cask..."
   brew install caskroom/cask/brew-cask
 
   echo "Installing Homebrew Cask apps..."
   brew install --cask kitty
+  brew tap microsoft/git
+  brew install --cask git-credential-manager-core
   
 else
   curl -L https://nixos.org/nix/install | sh
