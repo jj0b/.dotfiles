@@ -1,30 +1,53 @@
 # install nix
 if [[ $OSTYPE == 'darwin'* ]]; then
-    curl -L https://releases.nixos.org/nix/nix-2.4pre-rc1/install | sh
-#    sh <(curl -L https://nixos.org/nix/install) --daemon
+
+  # Check for Homebrew, install if needed
+  if test ! $(which brew); then
+    echo "Installing Homebrew..."
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi 
+
+  echo "Updating Homebrew..."
+  brew update  
+
+  echo "Installing Homebrew Formulae..."
+  brew install zsh
+  brew install antibody
+  brew install git
+  brew install neovim
+  brew install tmux
+  brew install stow
+  brew install yarn
+  brew install fzf
+  brew install ripgrep
+  brew install bat
+
+  echo "Installing Homebrew Cask"
+  brew install caskroom/cask/brew-cask
+
+  echo "Installing Homebrew Cask apps..."
+  brew install --cask kitty
+  
 else
-    curl -L https://nixos.org/nix/install | sh
+  curl -L https://nixos.org/nix/install | sh
+  
+  # source nix 
+  . ~/.nix-profile/etc/profile.d/nix.sh
+  
+  # install packages
+    nix-env -iA \
+    nixpkgs.zsh \
+    nixpkgs.antibody \
+    nixpkgs.git \
+    nixpkgs.neovim \
+    nixpkgs.tmux \
+    nixpkgs.stow \
+    nixpkgs.yarn \
+    nixpkgs.fzf \
+    nixpkgs.ripgrep \
+    nixpkgs.bat \
+    nixpkgs.kitty \
 fi
-
-# source nix 
-. ~/.nix-profile/etc/profile.d/nix.sh
-
-# install packages
-nix-env -iA \
-#        nixpkgs.zsh \
-        nixpkgs.antibody \
-        nixpkgs.git \
-        nixpkgs.neovim \
-        nixpkgs.tmux \
-        nixpkgs.stow \
-        nixpkgs.yarn \
-        nixpkgs.fzf \
-        nixpkgs.ripgrep \
-        nixpkgs.bat \
-#        nixpkgs.direnv \
-        nixpkgs.kitty \
-#        nixpkgs.gotop \
-        nixpkgs.lsd
 
 # stow
 stow git
@@ -32,7 +55,6 @@ stow zsh
 stow tmux
 stow nvim
 stow kitty
-stow lsd
 
 # add zsh to valid login shells
 command -v zsh | sudo tee -a /etc/shells
