@@ -1,4 +1,4 @@
-# install nix
+# install packages
 if [[ $OSTYPE == 'darwin'* ]]; then
 
   # Check for Homebrew, install if needed
@@ -22,7 +22,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install ripgrep
   brew install bat
 
-  echo "Installing Homebrew Cask"
+  echo "Installing Homebrew Cask..."
   brew install caskroom/cask/brew-cask
 
   echo "Installing Homebrew Cask apps..."
@@ -47,6 +47,7 @@ else
     nixpkgs.ripgrep \
     nixpkgs.bat \
     nixpkgs.kitty \
+
 fi
 
 # stow
@@ -67,3 +68,4 @@ antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 # install neovim plugins
 nvim --headless +PlugInstall +qall
+
