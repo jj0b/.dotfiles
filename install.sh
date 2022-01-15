@@ -21,6 +21,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install fzf
   brew install ripgrep
   brew install bat
+  brew install coreutils
 
   echo "Installing Homebrew Cask..."
   brew install caskroom/cask/brew-cask
