@@ -36,9 +36,9 @@ if [[ "$OSTYPE" = darwin* ]]; then
 
     alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
     # worlds
-    alias worlds='cd ~/Code/dApp/worlds-project'
+    alias worlds='cd ~/Code/worlds-project'
     # jupiter
-    alias jupiter='cd ~/Code/hypergiant/jupiter/jupiter-web'
+    alias jupiter='cd ~/Code/hypergiant/jupiter-web'
     alias ys='yarn workspace @jupiter/server' 
 
     # use nord-dircolors
