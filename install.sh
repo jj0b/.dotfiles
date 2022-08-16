@@ -63,13 +63,17 @@ stow nvim
 stow kitty
 
 # add zsh to valid login shells
+echo "Add zsh to valid login shells..."
 command -v zsh | sudo tee -a /etc/shells
 
 # use zsh as default shell
+echo "Use zsh as default shell..."
 sudo chsh -s $(which zsh) $USER
 
 # bundle zsh plugins
+echo "Bundle zsh plugins..."
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh 
 
 # install neovim plugins
+echo "Install neovim plugins"
 nvim --headless +PlugInstall +qall
