@@ -22,11 +22,10 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install ripgrep
   brew install bat
   brew install coreutils
-  brew install redis
-  brew install postgresql
+  brew install nvm
 
   echo "Installing Homebrew Cask..."
-  brew install caskroom/cask/brew-cask
+  brew install homebrew/cask 
 
   echo "Installing Homebrew Cask apps..."
   brew install --cask kitty
@@ -52,7 +51,7 @@ else
     nixpkgs.ripgrep \
     nixpkgs.bat \
     nixpkgs.kitty \
-
+    nixpkgs.nvm \
 fi
 
 # stow
