@@ -31,6 +31,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install --cask kitty
   brew tap microsoft/git
   brew install --cask git-credential-manager-core
+  brew install go-task/tap/go-task
   
 else
   curl -L https://nixos.org/nix/install | sh
@@ -52,6 +53,7 @@ else
     nixpkgs.bat \
     nixpkgs.kitty \
     nixpkgs.nvm \
+    nixpkgs.go-task \
 
 fi
 
