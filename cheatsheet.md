@@ -50,7 +50,7 @@ delete characters: d+<command>
 change characters: c+<command>
 change case of letter: ~
 undo/redo: u
-redo: ctrl+r
+redo: C-r
 copy line: yy
 paste below: p
 paste above: P
@@ -67,6 +67,35 @@ next and highlight: gn
 previous and highlight: gN
 change then go to next: cgn<Esc>
 delete then go to next dgn<Esc>
+
+### custom
+
+leader: /<space>
+
+#### normal mode
+
+open explore: <leader>e
+move between windows: <leader>h, <leader>j, <leader>k, <leader>l
+resize windows: C-Up, C-Down, C-Left, C-Right
+navigate buffers, next: S-l
+navigate buffers, previous: S-h
+move text up: C-j
+move text down: C-k
+
+#### insert mode
+
+escape to normal mode from insert mode: jj
+insert trailing ; from insert mode: ;;
+insert trailing , from insert mode: ,,
+move text up: C-j
+move text down: C-k
+
+#### visual mode
+
+stay in indent mode: <, >
+move text up: C-j
+move text down: C-k
+paste replace visual selection without copying it: p
 
 ## tmux
 
