@@ -117,7 +117,8 @@ split pane vertical: C-a |
 split pane horizontal: C-a -
 change pane: alt/option + <arrow-key>
 toggle pane full screen: C-a z
-close pane: C-d
+close pane immediately: C-d
+close pane wiht confirmation: C-a x
 
 ### windows
 
@@ -126,6 +127,7 @@ previous window: C-a p
 next window: C-a n
 go to window: C-a <number>
 rename current window: C-a ,
+close window: C-a &
 
 ### sessions
 
