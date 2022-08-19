@@ -79,22 +79,22 @@ move between windows: <leader>h, <leader>j, <leader>k, <leader>l
 resize windows: C-Up, C-Down, C-Left, C-Right
 navigate buffers, next: S-l
 navigate buffers, previous: S-h
-move text up: C-j
-move text down: C-k
+move text up: A-j
+move text down: A-k
 
 #### insert mode
 
 escape to normal mode from insert mode: jj
 insert trailing ; from insert mode: ;;
 insert trailing , from insert mode: ,,
-move text up: C-j
-move text down: C-k
+move text up: A-j
+move text down: A-k
 
 #### visual mode
 
 stay in indent mode: <, >
-move text up: C-j
-move text down: C-k
+move text up: A-j
+move text down: A-k
 paste replace visual selection without copying it: p
 
 ### source plugins with VIM Plug

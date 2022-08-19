@@ -101,13 +101,18 @@ call plug#begin('~/.config/nvim/plugged')
 
 " General
 "Plug 'nvim-lualine/lualine.nvim'     " Vim status line
-"Plug 'kyazdani42/nvim-web-devicons'  " Devicons
-"Plug 'kyazdani42/nvim-tree.lua'      " File explorer
 "Plug 'machakann/vim-highlightedyank' " Highlight yanked text in vim
 "Plug 'akinsho/bufferline.nvim'       " Buffers
 
 " Themes
 source ~/.config/nvim/plugins/nord.vim
+
+" Navigate panes between VIM and TMUX
+source ~/.config/nvim/plugins/vim-tmux-navigator.vim
+
+" File Explorer
+"source ~/.config/nvim/plugins/nvim-tree.vim
+"source ~/.config/nvim/plugins/nvim-web-devicons.vim
 
 " Fuzzy search
 source ~/.config/nvim/plugins/fzf.vim
@@ -171,7 +176,7 @@ let mapleader = "\<space>"
 " Normal Mode
 "-------------
 
-" Open explore
+" Open file explorer
 nnoremap <leader>e :Lexplore 30<CR>
 
 " Move between windows
@@ -191,8 +196,8 @@ nnoremap <S-l> :bnext<CR>
 nnoremap <S-h> :bprevious<CR>
 
 " Move text up and down
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
 
 "-------------
 " Insert Mode
@@ -206,8 +211,8 @@ imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
 " Move text up and down
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
 
 "-------------
 " Visual Mode
@@ -218,8 +223,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Move text up and down
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Paste replace visual selection without copying it
 vnoremap p "_dP
