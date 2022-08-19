@@ -97,6 +97,18 @@ move text up: C-j
 move text down: C-k
 paste replace visual selection without copying it: p
 
+### source plugins with VIM Plug
+
+source file: so %
+install VIM Plug plugins: PlugInstall
+
+### nvim-treesitter
+
+provides better syntax highlighting
+install language: TSInstall <language>
+list languages and install status: TSInstallInfo
+update installed languages: TSUpdate
+
 ## tmux
 
 ### panes

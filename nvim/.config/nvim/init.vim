@@ -111,6 +111,8 @@ source ~/.config/nvim/plugins/nord.vim
 
 " Fuzzy search
 source ~/.config/nvim/plugins/fzf.vim
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 " Lsp
 "Plug 'neovim/nvim-lspconfig'     
@@ -122,8 +124,11 @@ source ~/.config/nvim/plugins/coc.vim
 "Plug 'hrsh7th/cmp-nvim-lsp'
 "Plug 'onsails/lspkind-nvim'          " completion icons
 
-" Treesitter
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Syntax highlighting
+source ~/.config/nvim/plugins/nvim-treesitter.vim
+
+" JSON comment syntax highlighting
+" source ~/.config/nvim/plugins/vim-jsonrc.vim
 
 " Git
 "Plug 'tpope/vim-fugitive'
@@ -134,17 +139,14 @@ source ~/.config/nvim/plugins/vim-surround.vim
 "Plug 'tpope/vim-commentary'
 "Plug 'sheerun/vim-polyglot'
 
-" JSON comment syntax highlighting
-source ~/.config/nvim/plugins/vim-jsonrc.vim
-
 call plug#end()
 
 "--------------------------------------------------------------------------
 " Require plugin configs
 "--------------------------------------------------------------------------
 
-" Set lua namespace
-" lua require('jj0b')
+" Install all plugins in lua namespace, defined in ~/.config/nvim/lua/jj0b/init.lua
+lua require('jj0b')
 
 "--------------------------------------------------------------------------
 " Colors
