@@ -136,7 +136,7 @@ source ~/.config/nvim/plugins/nvim-treesitter.vim
 " source ~/.config/nvim/plugins/vim-jsonrc.vim
 
 " Git
-"Plug 'tpope/vim-fugitive'
+source ~/.config/nvim/plugins/vim-fugitive.vim
 "Plug 'lewis6991/gitsigns.nvim'
 
 " Surround tools
@@ -179,11 +179,11 @@ let mapleader = "\<space>"
 " Open file explorer
 nnoremap <leader>e :Lexplore 30<CR>
 
-" Move between windows
-nnoremap <leader>h :wincmd h<Cr>
-nnoremap <leader>j :wincmd j<Cr>
-nnoremap <leader>k :wincmd k<Cr>
-nnoremap <leader>l :wincmd l<Cr>
+" Move between windows - no longer needed as I set TMUX to also handle VIM 
+"nnoremap <leader>h :wincmd h<Cr>
+"nnoremap <leader>j :wincmd j<Cr>
+"nnoremap <leader>k :wincmd k<Cr>
+"nnoremap <leader>l :wincmd l<Cr>
 
 " Resize windows
 nnoremap <C-Up> :resize +2<CR>

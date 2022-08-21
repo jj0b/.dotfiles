@@ -58,6 +58,13 @@ visual line mode: V
 visual block mode: C-v
 change multiple instances: cgn<foo>Esc .
 
+### edit multiple lines
+
+1. go into visual block mode with C-v
+2. use hjkl to select lines
+3. insert with S-i
+4. <esc> to change all lines
+
 ### search
 
 search for pattern: /<pattern><Esc>
@@ -115,10 +122,10 @@ update installed languages: TSUpdate
 
 split pane vertical: C-a |
 split pane horizontal: C-a -
-change pane: alt/option + <arrow-key>
+change pane: C-h,j,k,l
 toggle pane full screen: C-a z
 close pane immediately: C-d
-close pane wiht confirmation: C-a x
+close pane with confirmation: C-a x
 
 ### windows
 
