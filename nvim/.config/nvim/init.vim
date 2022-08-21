@@ -132,9 +132,6 @@ source ~/.config/nvim/plugins/coc.vim
 " Syntax highlighting
 source ~/.config/nvim/plugins/nvim-treesitter.vim
 
-" JSON comment syntax highlighting
-" source ~/.config/nvim/plugins/vim-jsonrc.vim
-
 " Git
 source ~/.config/nvim/plugins/vim-fugitive.vim
 "Plug 'lewis6991/gitsigns.nvim'

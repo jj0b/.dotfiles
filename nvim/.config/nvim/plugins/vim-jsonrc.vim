@@ -1,1 +1,0 @@
-Plug 'kevinoid/vim-jsonc'
