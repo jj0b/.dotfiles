@@ -1,1 +1,1 @@
-Plug 'kyazdani43/nvim-tree.lua'      " File explorer
+Plug 'kyazdani42/nvim-tree.lua'

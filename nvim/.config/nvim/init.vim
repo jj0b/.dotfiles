@@ -111,8 +111,8 @@ source ~/.config/nvim/plugins/nord.vim
 source ~/.config/nvim/plugins/vim-tmux-navigator.vim
 
 " File Explorer
-"source ~/.config/nvim/plugins/nvim-tree.vim
 source ~/.config/nvim/plugins/nvim-web-devicons.vim
+source ~/.config/nvim/plugins/nvim-tree.vim
 
 " Fuzzy search
 source ~/.config/nvim/plugins/fzf.vim
@@ -174,7 +174,8 @@ let mapleader = "\<space>"
 "-------------
 
 " Open file explorer
-nnoremap <leader>e :Lexplore 30<CR>
+" nnoremap <leader>e :Lexplore 30<CR> "netrw
+nnoremap <leader>e :NvimTreeToggle<CR>
 
 " Move between windows - no longer needed as I set TMUX to also handle VIM 
 "nnoremap <leader>h :wincmd h<Cr>
@@ -226,4 +227,5 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " Paste replace visual selection without copying it
 vnoremap p "_dP
 
+" nvim-tree.lua
 
