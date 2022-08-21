@@ -100,7 +100,7 @@ set splitright
 call plug#begin('~/.config/nvim/plugged')
 
 " General
-"Plug 'nvim-lualine/lualine.nvim'     " Vim status line
+source ~/.config/nvim/plugins/nvim-lualine.vim " Vim status line
 "Plug 'machakann/vim-highlightedyank' " Highlight yanked text in vim
 "Plug 'akinsho/bufferline.nvim'       " Buffers
 
@@ -112,7 +112,7 @@ source ~/.config/nvim/plugins/vim-tmux-navigator.vim
 
 " File Explorer
 "source ~/.config/nvim/plugins/nvim-tree.vim
-"source ~/.config/nvim/plugins/nvim-web-devicons.vim
+source ~/.config/nvim/plugins/nvim-web-devicons.vim
 
 " Fuzzy search
 source ~/.config/nvim/plugins/fzf.vim
