@@ -1,1 +1,1 @@
-Plug 'kyazdani42/nvim-web-devicons'  " Devicons
+Plug 'kyazdani42/nvim-web-devicons'
