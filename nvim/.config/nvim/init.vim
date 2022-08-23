@@ -141,6 +141,9 @@ source ~/.config/nvim/plugins/vim-surround.vim
 "Plug 'tpope/vim-commentary'
 "Plug 'sheerun/vim-polyglot'
 
+" Ale for linting 
+" source ~/.config/nvim/plugins/ale.vim
+
 call plug#end()
 
 "--------------------------------------------------------------------------
