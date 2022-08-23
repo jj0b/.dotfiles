@@ -7,6 +7,9 @@ if [[ $OSTYPE == 'darwin'* ]]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi 
 
+  echo "Turning off Homebrew analytics..."
+  brew analytics off
+
   echo "Updating Homebrew..."
   brew update  
 
