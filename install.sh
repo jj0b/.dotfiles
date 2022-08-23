@@ -23,6 +23,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install bat
   brew install coreutils
   brew install nvm
+  brew install lsd
 
   echo "Installing Homebrew Cask..."
   brew install homebrew/cask 
@@ -54,6 +55,7 @@ else
     nixpkgs.kitty \
     nixpkgs.nvm \
     nixpkgs.go-task \
+    nixpkgs.lsd \
 
 fi
 
@@ -63,6 +65,7 @@ stow zsh
 stow tmux
 stow nvim
 stow kitty
+stow lsd
 
 echo "Use nvm to install node LTS"
 nvm install --lts
