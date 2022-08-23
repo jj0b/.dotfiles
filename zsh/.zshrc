@@ -23,6 +23,7 @@ alias zrc='vim ${HOME}/.zshrc'
 alias cs='vim ${HOME}/.dotfiles/cheatsheet.md'
 alias cat='bat'
 alias dot='cd ~/.dotfiles'
+alias ls='lsd -la'
 
 # hardhat 
 alias nhc='npx hardhat compile'
@@ -32,19 +33,12 @@ alias nhrl='npx hardhat run scripts/deploy.js --network localhost'
 # macOS specific
 if [[ "$OSTYPE" = darwin* ]]; then
     # use gls on macOS for dircolors
-    alias ls='gls --color=always -G -al'
+    # alias ls='gls --color=always -G -al' # commented out because of lsd
 
     alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
-    # worlds
-    alias worlds='cd ~/Code/worlds-project'
-    # jupiter
-    alias jupiter='cd ~/Code/hypergiant/jupiter-web'
-    alias ys='yarn workspace @jupiter/server'
-    # mpoc
-    alias ym='yarn workspace @molex/server'
 
     # use nord-dircolors
-    # for macOS need to install coreutils (can do with brew) 
+    # for macOS need to install coreutils (done with brew in install.sh) 
     # then include this PATH and MANPATH
     PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -69,4 +63,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# go version manager
 [[ -s "/Users/jason/.gvm/scripts/gvm" ]] && source "/Users/jason/.gvm/scripts/gvm"
