@@ -4,7 +4,7 @@
 
 ### Nerd Fonts Symbols Only
 
-- Download and install NerdFontsSymbolsOnly.zip from [https://github.com/ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts).
+- Download and install `NerdFontsSymbolsOnly.zip` from [https://github.com/ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts).
 
 ### Git
 
@@ -29,7 +29,7 @@ cd .dotfiles
 ./install.sh
 ```
 
-- After the script is finished open init.vim:
+- After the script is finished open `init.vim:`
 
 ```bash
 vim ~/.config/nvim/init.vim
