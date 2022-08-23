@@ -180,6 +180,9 @@ let mapleader = "\<space>"
 " nnoremap <leader>e :Lexplore 30<CR> "netrw
 nnoremap <leader>e :NvimTreeToggle<CR>
 
+" Open fzf
+nnoremap <leader>p :GFiles<CR>
+
 " Move between windows - no longer needed as I set TMUX to also handle VIM 
 "nnoremap <leader>h :wincmd h<Cr>
 "nnoremap <leader>j :wincmd j<Cr>

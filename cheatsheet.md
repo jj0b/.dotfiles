@@ -77,17 +77,18 @@ delete then go to next dgn<Esc>
 
 ### custom
 
-leader: /<space>
+leader: <space>
 
 #### normal mode
 
-open explore: <leader>e
+open nvim-tree file explorer: <leader>e
 move between windows: <leader>h, <leader>j, <leader>k, <leader>l
 resize windows: C-Up, C-Down, C-Left, C-Right
 navigate buffers, next: S-l
 navigate buffers, previous: S-h
 move text up: A-j
 move text down: A-k
+search files with fzf respecting gitignore: <leader>p
 
 #### insert mode
 
