@@ -180,8 +180,14 @@ let mapleader = "\<space>"
 " nnoremap <leader>e :Lexplore 30<CR> "netrw
 nnoremap <leader>e :NvimTreeToggle<CR>
 
-" Open fzf
-nnoremap <leader>p :GFiles<CR>
+" fzf
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>F :AllFiles<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>h :History<CR>
+nnoremap <leader>r :Rg<CR>
+nnoremap <leader>R :Rg<space>
+nnoremap <leader>gb :GBranches<CR>
 
 " Move between windows - no longer needed as I set TMUX to also handle VIM 
 "nnoremap <leader>h :wincmd h<Cr>
@@ -232,6 +238,3 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Paste replace visual selection without copying it
 vnoremap p "_dP
-
-" nvim-tree.lua
-
