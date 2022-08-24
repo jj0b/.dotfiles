@@ -27,6 +27,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install coreutils
   brew install nvm
   brew install lsd
+  brew install derailed/k9s/k9s
 
   echo "Installing Homebrew Cask..."
   brew install homebrew/cask 
@@ -59,6 +60,7 @@ else
     nixpkgs.nvm \
     nixpkgs.go-task \
     nixpkgs.lsd \
+    nixpkgs.k9s \
 
 fi
 
