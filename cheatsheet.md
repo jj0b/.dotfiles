@@ -117,6 +117,17 @@ install language: TSInstall <language>
 list languages and install status: TSInstallInfo
 update installed languages: TSUpdate
 
+### vim-surround
+
+surround word: ysiw+whatever you want to surround with
+surround word-with-punctuation: ysiW+whatever you want to surround with
+change surrounding: cs"' previous then new
+change surrounding tag: cst<new-tag>
+delete surrounding: ds
+delete surrounding tag: dst
+visual mode, surround text: S"
+visual mode, surround text with tag: S<tag>
+
 ## tmux
 
 ### panes
