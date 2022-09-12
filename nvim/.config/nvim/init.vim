@@ -16,15 +16,15 @@
 
 
 " Number of spaces in a <Tab>
-set tabstop=4 
-set softtabstop=4
+set tabstop=2 
+set softtabstop=2
 set expandtab
 
 " Enable autoindents
 set smartindent
 
 " Number of spaces used for autoindents
-set shiftwidth=4
+set shiftwidth=2
 
 " Adds line numbers
 set number

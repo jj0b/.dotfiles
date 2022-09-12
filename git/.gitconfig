@@ -15,3 +15,5 @@
 	useHttpPath = true
 [push]
 	default = current
+[credential "https://ghe.siriusxm.com"]
+	provider = github
