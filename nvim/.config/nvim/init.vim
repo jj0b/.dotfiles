@@ -142,6 +142,9 @@ source ~/.config/nvim/plugins/nvim-surround.vim
 " Autopairs
 source ~/.config/nvim/plugins/nvim-autopairs.vim
 
+" Autotag
+source ~/.config/nvim/plugins/nvim-ts-autotag.vim
+
 " Ale for linting 
 " source ~/.config/nvim/plugins/ale.vim
 
