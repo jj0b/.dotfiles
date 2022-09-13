@@ -160,6 +160,12 @@ Double right click acts like <C-]>
 
 ## tmux
 
+### plugins with tpm (https://github.com/tmux-plugins/tpm)
+
+install plugins: <prefix> I
+update plugins: <prefix> U
+remove plugins not on list: <prefix> alt u
+
 ### panes
 
 split pane vertical: C-a |
