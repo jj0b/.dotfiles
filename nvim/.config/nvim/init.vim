@@ -136,10 +136,11 @@ source ~/.config/nvim/plugins/nvim-treesitter.vim
 source ~/.config/nvim/plugins/vim-fugitive.vim
 "Plug 'lewis6991/gitsigns.nvim'
 
-" Surround tools
-source ~/.config/nvim/plugins/vim-surround.vim
-"Plug 'tpope/vim-commentary'
-"Plug 'sheerun/vim-polyglot'
+" Surround 
+source ~/.config/nvim/plugins/nvim-surround.vim
+
+" Autopairs
+source ~/.config/nvim/plugins/nvim-autopairs.vim
 
 " Ale for linting 
 " source ~/.config/nvim/plugins/ale.vim
