@@ -47,7 +47,7 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip' -- Snippet Engine for Neovim written in Lua
   use 'folke/lsp-colors.nvim' -- Automatically creates missing LSP diagnostics highlight groups for color schemes that don't yet support the Neovim 0.5 builtin lsp client
   use "kylechui/nvim-surround" -- Lua port of vim-surround
-  use 'romgrk/nvim-treesitter-context'
+  use 'nvim-treesitter/nvim-treesitter-context'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
