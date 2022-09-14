@@ -1,6 +1,0 @@
-require('jj0b.nvim-treesitter')
-require('jj0b.nvim-lualine')
-require('jj0b.nvim-tree')
-require('jj0b.nvim-surround')
-require('jj0b.nvim-autopairs')
-require('jj0b.nvim-ts-autotag')

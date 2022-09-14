@@ -29,17 +29,17 @@ cd .dotfiles
 ./install.sh
 ```
 
-- After the script is finished open `init.vim:`
+- After the script is finished open `init.lua:`
 
 ```bash
-vim ~/.config/nvim/init.vim
+vim ~/.config/nvim/init.lua
 ```
 
 - In vim (actuall `neovim` as `vim` is aliased to it) install plugins:
 
 ```vim
-so %
-PlugInstall
+:so %
+:PackerCompile or PackerSync
 ```
 
 ## Usage

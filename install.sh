@@ -87,4 +87,4 @@ echo "Bundle zsh plugins..."
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh 
 
 echo "Install neovim plugins"
-nvim --headless +PlugInstall +qall
+$ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
