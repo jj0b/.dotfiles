@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
   use 'folke/zen-mode.nvim' -- Distraction-free mode
   use({
     "iamcco/markdown-preview.nvim", -- Markdown live preview
-    run = function() vim.fn["mkdp#util#install"]() end,
+    run = function() vim.fn["mkdp#util#install"]() end, 
   })
   use 'akinsho/nvim-bufferline.lua' -- A snazzy bufferline
   use 'lewis6991/gitsigns.nvim' -- git integration for buffers
@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip' -- Snippet Engine for Neovim written in Lua
   use 'folke/lsp-colors.nvim' -- Automatically creates missing LSP diagnostics highlight groups for color schemes that don't yet support the Neovim 0.5 builtin lsp client
   use "kylechui/nvim-surround" -- Lua port of vim-surround
+  use 'romgrk/nvim-treesitter-context'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
