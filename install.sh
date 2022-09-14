@@ -27,6 +27,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install coreutils
   brew install nvm
   brew install lsd
+  brew install fsouza/prettierd/prettierd
   brew install derailed/k9s/k9s
   brew install kubectx
 

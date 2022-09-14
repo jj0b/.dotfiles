@@ -18,6 +18,7 @@ source ~/.zsh_plugins.sh
 # use neovim
 alias vim='nvim'
 
+alias vp='vim ${HOME}/.config/nvim/lua/jj0b/plugins.lua'
 alias vrc='vim ${HOME}/.config/nvim/init.vim'
 alias zrc='vim ${HOME}/.zshrc'
 alias cs='vim ${HOME}/.dotfiles/cheatsheet.md'
