@@ -27,7 +27,6 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install coreutils
   brew install nvm
   brew install lsd
-  brew install fsouza/prettierd/prettierd
   brew install derailed/k9s/k9s
   brew install kubectx
 
@@ -67,6 +66,7 @@ else
 
 fi
 
+
 # stow
 stow git
 stow zsh
@@ -77,6 +77,9 @@ stow lsd
 
 echo "Use nvm to install node LTS"
 nvm install --lts
+
+echo "Installing typescript-language-server, eslint_d and prettierd"
+npm install -g typescript-language-ypescript eslint_d @fsouza/prettierd
 
 echo "Add zsh to valid login shells..."
 command -v zsh | sudo tee -a /etc/shells
