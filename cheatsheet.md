@@ -4,6 +4,7 @@
 
 ### general
 
+check if a key is mapped: :verb map <key>
 repeat command: .
 center cursor: zz
 view default keymaps: :h key-notation
