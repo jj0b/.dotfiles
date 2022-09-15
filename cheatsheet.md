@@ -58,7 +58,7 @@ paste below: p
 paste above: P
 visual line mode: V
 visual block mode: C-v
-change multiple instances: cgn<foo>Esc .
+select word and change multiple instances: *cgn<foo>Esc then . to change other instances
 
 ### edit multiple lines
 
@@ -74,8 +74,9 @@ next occurrence of pattern: n
 previous occurrence of pattern: N
 next and highlight: gn
 previous and highlight: gN
-change then go to next: cgn<Esc>
-delete then go to next dgn<Esc>
+change selected word then go to next: cgn<Esc>
+delete selected word then go to next dgn<Esc>
+remove highlighting: :noh
 
 #### buffers
 
