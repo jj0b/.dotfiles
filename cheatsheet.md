@@ -7,6 +7,7 @@
 repeat command: .
 center cursor: zz
 view default keymaps: :h key-notation
+open file: :e <file_name>
 
 ### movement
 
@@ -75,40 +76,69 @@ previous and highlight: gN
 change then go to next: cgn<Esc>
 delete then go to next dgn<Esc>
 
-### custom
+#### buffers
 
-leader: <space>
+:ls         - list all buffers
+:b4         - switch to buffer number 4
+:bn         - switch to next buffer in the buffer list
+:bp         - switch to previous buffer in the buffer list
+:bf         - switch to first buffer in the buffer list
+:bl         - switch to last buffer in the buffer list
+:b foo<Tab> - switch by buffer name with tab-completion
+:b#         - switch to the alternate file
+
+#### window
+
+<Ctrl-W>+v       - Opens a new vertical split
+<Ctrl-W>+s       - Opens a new horizontal split
+<Ctrl-W>+c       - Closes a window
+<Ctrl-W>+o       - Makes current window the only one on screen and closes other windows
+<Ctrl-W>+h/j/k/l - Moves the cursor to left/bottom/top/right
+
+:vsplit <filename>     - Split window vertically
+:split <filename>      - Split window horiontally
+:new [filename]        - Create new window
+
+#### tabs
+
+:tabnew file.txt - open file.txt in a new tab
+:tabclose        - Close current tab
+:tabnext         - Go to next tab
+:tabprevious     - Go to previous tab
+:tablast         - Go to last tab
+:tabfirst        - Go to first tab
+
+### custom
 
 #### normal mode
 
-open nvim-tree file explorer: <leader>e
+move text up: A-j
+move text down: A-k
+
+choose buffer: gb
+
+open new tab: to <file_name>
+close tab: tc
+next tab: tn
+previous tab: tp
+last tab: tl
+first tab: tf
+
+split horizontal: ss
+split vertical: sv
+toggle between open windows: <space>
+move between windows: s + hjkl
+resize window: C-w + arrows
+
 move between windows: <leader>h, <leader>j, <leader>k, <leader>l
 resize windows: C-Up, C-Down, C-Left, C-Right
 navigate buffers, next: S-l
 navigate buffers, previous: S-h
-move text up: A-j
-move text down: A-k
-search files with fzf respecting gitignore: <leader>p
 
-#### insert mode
-
-escape to normal mode from insert mode: jj
-insert trailing ; from insert mode: ;;
-insert trailing , from insert mode: ,,
-move text up: A-j
-move text down: A-k
-
-#### visual mode
-
-stay in indent mode: <, >
-move text up: A-j
-move text down: A-k
-paste replace visual selection without copying it: p
-
-### source plugins with VIM Plug
+### source plugins with Packer 
 
 source file: so %
-install VIM Plug plugins: PlugInstall
+install Packer plugins: PackerInstall
 
 ### nvim-treesitter
 
@@ -119,8 +149,7 @@ update installed languages: TSUpdate
 
 ### nvim-surround
 
-#### Old text Command New text
-
+#### Old text -- Command -- New text
 surr*ound_words ysiw) (surround_words)
 *make strings ys$" "make strings"
 [delete ar*ound me!] ds] delete around me!
@@ -129,34 +158,23 @@ remove <b>HTML t*ags</b> dst remove HTML tags
 <b>or tag* types</b> csth1<CR> <h1>or tag types</h1>
 delete(functi*on calls) dsf function calls
 
-### nvim-tree
+### telescope
 
-move around like in any vim buffer
-<CR> or o on .. will cd in the above directory
-<C-]> will cd in the directory under the cursor
-<BS> will close current opened directory or parent
-type a to add a file. Adding a directory requires leaving a leading / at the end of the path.
-you can add multiple directories by doing foo/bar/baz/f and it will add foo bar and baz directories and f as a file
-type r to rename a file
-type <C-r> to rename a file and omit the filename on input
-type x to add/remove file/directory to cut clipboard
-type c to add/remove file/directory to copy clipboard
-type p to paste from clipboard. Cut clipboard has precedence over copy (will prompt for confirmation)
-type d to delete a file (will prompt for confirmation)
-type ]c to go to next git item
-type [c to go to prev git item
-type - to navigate up to the parent directory of the current file/directory
-if the file is a directory, <CR> will open the directory otherwise it will open the file in the buffer near the tree
-if the file is a symlink, <CR> will follow the symlink (if the target is a file)
-<C-v> will open the file in a vertical split
-<C-x> will open the file in a horizontal split
-<C-t> will open the file in a new tab
-<Tab> will open the file as a preview (keeps the cursor in the tree)
-I will toggle visibility of folders hidden via |g:nvim_tree_ignore|
-H will toggle visibility of dotfiles (files/folders starting with a .)
-R will refresh the tree
-Double left click acts like <CR>
-Double right click acts like <C-]>
+find files: ;f
+live grep: ;r
+buffers: \\
+help tags: ;t
+resume: ;;
+diagnostics: ;e
+
+#### telescope-browser
+
+file browser: sf
+open file: o
+create file: c
+rename file: r
+delete file: d
+toggle hidden files: h
 
 ## tmux
 

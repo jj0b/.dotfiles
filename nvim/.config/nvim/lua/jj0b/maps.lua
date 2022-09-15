@@ -1,6 +1,6 @@
 local keymap = vim.keymap
 
-vim.g.mapleader = " "
+-- vim.g.mapleader = " "
 
 keymap.set('n', 'x', '"_x')
 
@@ -14,17 +14,26 @@ keymap.set('n', '-', '<C-x>')
 -- Select all
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
+-- Browse buffers:
+keymap.set('n', 'gb', ':ls<CR>:b<Space>')
+
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
--- New tab
+-- Tabs 
 keymap.set('n', 'te', ':tabedit')
+keymap.set('n', 'to', ':tabnew')
+keymap.set('n', 'tc', ':tabclose')
+keymap.set('n', 'tn', ':tabnext')
+keymap.set('n', 'tp', ':tabprevious')
+keymap.set('n', 'tl', ':tablast')
+keymap.set('n', 'tf', ':tabfirst')
 
 -- Split window
 keymap.set('n', 'ss', ':split<Return><C-w>w')
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
 
--- Move window
+-- Move between windows
 keymap.set('n', '<Space>', '<C-w>w')
 keymap.set('', 'sh', '<C-w>h')
 keymap.set('', 'sk', '<C-w>k')
