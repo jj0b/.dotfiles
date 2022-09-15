@@ -2,6 +2,10 @@ local keymap = vim.keymap
 
 -- vim.g.mapleader = " "
 
+-- remap Esc
+keymap.set('i', 'kj', '<Esc>')
+keymap.set('v', 'kj', '<Esc>')
+
 keymap.set('n', 'x', '"_x')
 
 -- Increment/decrement
@@ -21,13 +25,13 @@ keymap.set('n', 'gb', ':ls<CR>:b<Space>')
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
 -- Tabs 
+keymap.set('n', 'tt', ':tabnew<CR>')
+keymap.set('n', 'tc', ':tabclose<CR>')
+keymap.set('n', 'tn', ':tabnext<CR>')
+keymap.set('n', 'tp', ':tabprevious<CR>')
+keymap.set('n', 'tl', ':tablast<CR>')
+keymap.set('n', 'tf', ':tabfirst<CR>')
 keymap.set('n', 'te', ':tabedit')
-keymap.set('n', 'to', ':tabnew')
-keymap.set('n', 'tc', ':tabclose')
-keymap.set('n', 'tn', ':tabnext')
-keymap.set('n', 'tp', ':tabprevious')
-keymap.set('n', 'tl', ':tablast')
-keymap.set('n', 'tf', ':tabfirst')
 
 -- Split window
 keymap.set('n', 'ss', ':split<Return><C-w>w')
