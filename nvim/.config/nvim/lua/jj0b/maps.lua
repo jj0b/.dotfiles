@@ -2,9 +2,12 @@ local keymap = vim.keymap
 
 -- vim.g.mapleader = " "
 
--- remap Esc
+-- Remap Esc to kj
 keymap.set('i', 'kj', '<Esc>')
 keymap.set('v', 'kj', '<Esc>')
+
+-- Clear search results with Return
+keymap.set('n', '<CR>', ':nohlsearch<CR><CR>', { silent=true })
 
 keymap.set('n', 'x', '"_x')
 
