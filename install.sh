@@ -15,6 +15,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 
   echo "Installing Homebrew Formulae..."
   brew install zsh
+  brew install deno
   brew install antibody
   brew install git
   brew install neovim
@@ -48,6 +49,7 @@ else
   # install packages
     nix-env -iA \
     nixpkgs.zsh \
+    nixpkgs.deno \
     nixpkgs.antibody \
     nixpkgs.git \
     nixpkgs.neovim \
@@ -79,7 +81,7 @@ echo "Use nvm to install node LTS"
 nvm install --lts
 
 echo "Installing typescript-language-server, eslint_d and prettierd"
-npm install -g typescript-language-ypescript eslint_d @fsouza/prettierd
+npm install -g typescript-language-typescript eslint_d @fsouza/prettierd
 
 echo "Add zsh to valid login shells..."
 command -v zsh | sudo tee -a /etc/shells
