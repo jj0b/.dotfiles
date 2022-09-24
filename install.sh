@@ -91,7 +91,7 @@ fisher install jorgebucaran/nvm.fish
 fisher install acomagu/fish-async-prompt
 
 echo "Use nvm to install node LTS"
-nvm install --lts
+nvm install lts
 
 echo "Installing typescript-language-server, eslint_d and prettierd"
 npm install -g typescript-language-typescript eslint_d @fsouza/prettierd
