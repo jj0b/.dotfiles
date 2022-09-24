@@ -14,7 +14,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew update  
 
   echo "Installing Homebrew Formulae..."
-  brew install zsh
+  brew install fish
   brew install deno
   brew install antibody
   brew install git
@@ -48,7 +48,7 @@ else
   
   # install packages
     nix-env -iA \
-    nixpkgs.zsh \
+    nixpkgs.fish \
     nixpkgs.deno \
     nixpkgs.antibody \
     nixpkgs.git \
@@ -71,7 +71,7 @@ fi
 
 # stow
 stow git
-stow zsh
+stow fish
 stow tmux
 stow nvim
 stow kitty
@@ -83,14 +83,21 @@ nvm install --lts
 echo "Installing typescript-language-server, eslint_d and prettierd"
 npm install -g typescript-language-typescript eslint_d @fsouza/prettierd
 
-echo "Add zsh to valid login shells..."
-command -v zsh | sudo tee -a /etc/shells
+echo "Add fish to valid login shells..."
+command -v fish | sudo tee -a /etc/shells
 
-echo "Use zsh as default shell..."
-sudo chsh -s $(which zsh) $USER
+echo "Use fish as default shell..."
+sudo chsh -s $(which fish) $USER
 
-echo "Bundle zsh plugins..."
-antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh 
+echo "Install fisher plugin manager for fish shell"
+exec fish
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+
+fisher install oh-my-fish/plugin-brew
+fisher install oh-my-fish/theme-bobthefish
+fisher install oh-my-fish/plugin-extract
+fisher install jorgebucaran/nvm.fish
+fisher install acomagu/fish-async-prompt
 
 echo "Install neovim plugins"
 $ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

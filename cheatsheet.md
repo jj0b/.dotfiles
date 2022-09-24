@@ -56,6 +56,8 @@ redo: C-r
 copy line: yy
 paste below: p
 paste above: P
+copy to + buffer: "+yy
+paste from + buffer: "+p
 visual line mode: V
 visual block mode: C-v
 select word and change multiple instances: *cgn<foo>Esc then . to change other instances
