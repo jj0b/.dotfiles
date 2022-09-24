@@ -17,3 +17,4 @@ set -U fish_user_paths $fish_user_paths "/Applications/Visual Studio Code.app/Co
 set -Ux PAGER less
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
+

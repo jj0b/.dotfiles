@@ -16,7 +16,6 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   echo "Installing Homebrew Formulae..."
   brew install fish
   brew install deno
-  brew install antibody
   brew install git
   brew install neovim
   brew install tmux
@@ -26,7 +25,6 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install ripgrep
   brew install bat
   brew install coreutils
-  brew install nvm
   brew install lsd
   brew install derailed/k9s/k9s
   brew install kubectx
@@ -50,7 +48,6 @@ else
     nix-env -iA \
     nixpkgs.fish \
     nixpkgs.deno \
-    nixpkgs.antibody \
     nixpkgs.git \
     nixpkgs.neovim \
     nixpkgs.tmux \
@@ -60,7 +57,6 @@ else
     nixpkgs.ripgrep \
     nixpkgs.bat \
     nixpkgs.kitty \
-    nixpkgs.nvm \
     nixpkgs.go-task \
     nixpkgs.lsd \
     nixpkgs.k9s \
@@ -77,11 +73,6 @@ stow nvim
 stow kitty
 stow lsd
 
-echo "Use nvm to install node LTS"
-nvm install --lts
-
-echo "Installing typescript-language-server, eslint_d and prettierd"
-npm install -g typescript-language-typescript eslint_d @fsouza/prettierd
 
 echo "Add fish to valid login shells..."
 command -v fish | sudo tee -a /etc/shells
@@ -98,6 +89,12 @@ fisher install oh-my-fish/theme-bobthefish
 fisher install oh-my-fish/plugin-extract
 fisher install jorgebucaran/nvm.fish
 fisher install acomagu/fish-async-prompt
+
+echo "Use nvm to install node LTS"
+nvm install --lts
+
+echo "Installing typescript-language-server, eslint_d and prettierd"
+npm install -g typescript-language-typescript eslint_d @fsouza/prettierd
 
 echo "Install neovim plugins"
 $ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
