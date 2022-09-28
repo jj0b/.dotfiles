@@ -73,7 +73,6 @@ stow nvim
 stow kitty
 stow lsd
 
-
 echo "Add fish to valid login shells..."
 command -v fish | sudo tee -a /etc/shells
 
