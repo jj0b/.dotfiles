@@ -11,7 +11,9 @@ ts.setup {
     disable = {},
   },
   ensure_installed = {
+    "typescript",
     "tsx",
+    "javascript",
     "toml",
     "fish",
     "json",
