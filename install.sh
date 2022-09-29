@@ -37,6 +37,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew tap microsoft/git
   brew install --cask git-credential-manager-core
   brew install go-task/tap/go-task
+  brew install surrealdb/tap/surreal
   
 else
   curl -L https://nixos.org/nix/install | sh
