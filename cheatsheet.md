@@ -79,6 +79,7 @@ previous and highlight: gN
 change selected word then go to next: cgn<Esc>
 delete selected word then go to next dgn<Esc>
 remove highlighting: :noh
+clear search: C-l
 
 #### buffers
 
