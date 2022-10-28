@@ -45,8 +45,7 @@ telescope.load_extension("file_browser")
 vim.keymap.set('n', ';f',
   function()
     builtin.find_files({
-      no_ignore = false,
-      hidden = true
+      find_command = {'rg', '--files', '--hidden', '-g', '!.git'}
     })
   end)
 vim.keymap.set('n', ';r', function()
