@@ -18,3 +18,9 @@ set -Ux PAGER less
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /opt/homebrew/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+

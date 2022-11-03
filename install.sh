@@ -28,6 +28,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install lsd
   brew install derailed/k9s/k9s
   brew install kubectx
+  brew install --cask miniconda
 
   echo "Installing Homebrew Cask..."
   brew install homebrew/cask 
@@ -98,3 +99,8 @@ npm install -g typescript-language-typescript eslint_d @fsouza/prettierd
 
 echo "Install neovim plugins"
 $ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+echo "Configure miniconda for fish"
+conda init fish
+conda config --set auto_activate_base False
+source ~/.config/fish/config.fish
