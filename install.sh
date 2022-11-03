@@ -102,5 +102,6 @@ $ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 echo "Configure miniconda for fish"
 conda init fish
+source ~/.config/fish/config.fish
 conda config --set auto_activate_base False
 source ~/.config/fish/config.fish
