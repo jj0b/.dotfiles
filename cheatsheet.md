@@ -212,6 +212,7 @@ close window: <prefix> &
 
 list sessions: tmux ls
 attach to session: tmux attach -t <number || session-name>
+detach from current session: <prefix> d
 start new named session: tmux new -s <session-name>
 rename session: tmux rename-session -t <old-number || old-name> <new-name>
 kill current session: <prefix> :kill-session
