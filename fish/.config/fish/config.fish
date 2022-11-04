@@ -22,11 +22,11 @@ set -Ux VISUAL nvim
 # On M1 ARM it installs to /opt/homebrew/
 # On Intel x86 it installs to /usr/local/
 # To make this file work on both machines we need to use the following to get the correct path to conda:
-
-eval (string join '' (string split -r -m1 /bin/brew (which brew)) /Caskroom/miniconda/base/bin/conda) "shell.fish" "hook" $argv | source
+# eval (string join '' (string split -r -m1 /bin/brew (which brew)) /Caskroom/miniconda/base/bin/conda) "shell.fish" "hook" $argv | source
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 # eval /opt/homebrew/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+eval (string join '' (string split -r -m1 /bin/brew (which brew)) /Caskroom/miniconda/base/bin/conda) "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
