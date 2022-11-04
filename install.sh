@@ -39,6 +39,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install --cask git-credential-manager-core
   brew install go-task/tap/go-task
   brew install surrealdb/tap/surreal
+  brew install --cask qlmarkdown
   
 else
   curl -L https://nixos.org/nix/install | sh
