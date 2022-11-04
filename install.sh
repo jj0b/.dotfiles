@@ -105,4 +105,5 @@ echo "Configure miniconda for fish"
 conda init fish
 source ~/.config/fish/config.fish
 conda config --set auto_activate_base False
+conda config --set changeps1 False
 source ~/.config/fish/config.fish
