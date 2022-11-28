@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
   use 'folke/zen-mode.nvim' -- Distraction-free mode
   use({
     "iamcco/markdown-preview.nvim", -- Markdown live preview
-    run = function() vim.fn["mkdp#util#install"]() end, 
+    run = function() vim.fn["mkdp#util#install"]() end,
   })
   use 'akinsho/nvim-bufferline.lua' -- A snazzy bufferline
   use 'lewis6991/gitsigns.nvim' -- git integration for buffers

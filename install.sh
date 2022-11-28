@@ -95,8 +95,8 @@ fisher install acomagu/fish-async-prompt
 echo "Use nvm to install node LTS"
 nvm install lts
 
-echo "Installing typescript-language-server, eslint_d and prettierd"
-npm install -g typescript-language-typescript eslint_d @fsouza/prettierd
+echo "Installing typescript-language-server, eslint_d and prettierd, emmet-ls"
+npm install -g typescript-language-typescript eslint_d @fsouza/prettierd emmet-ls
 
 echo "Install neovim plugins"
 $ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
