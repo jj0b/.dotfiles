@@ -1,3 +1,14 @@
+vim.cmd[[colorscheme nord]]
+
+local has = function(x)
+  return vim.fn.has(x) == 1
+end
+local is_mac = has "macunix"
+
+if is_mac then
+  vim.opt.clipboard:append { 'unnamedplus' }
+end
+
 vim.cmd("autocmd!")
 
 vim.scriptencoding = 'utf-8'
@@ -29,6 +40,15 @@ vim.opt.wrap = false -- No Wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
+
+
+-- Highlights
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.wildoptions = 'pum'
+vim.opt.pumblend = 5
+vim.opt.background = 'dark'
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
