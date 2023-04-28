@@ -30,3 +30,9 @@ set -Ux VISUAL nvim
 eval (string join '' (string split -r -m1 /bin/brew (which brew)) /Caskroom/miniconda/base/bin/conda) "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/jason/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
