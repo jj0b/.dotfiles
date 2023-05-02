@@ -4,7 +4,8 @@
 
 ### Nerd Fonts Symbols Only
 
-- Download and install `NerdFontsSymbolsOnly.zip` from [https://github.com/ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts).
+- Download and install `Symbols Nerd Font` from [https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/NerdFontsSymbolsOnly.zip](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/NerdFontsSymbolsOnly.zip).
+- Download and install `JetBrainsMono Nerd Font` from [https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/JetBrainsMono.zip](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/JetBrainsMono.zip).
 
 ### Git
 
@@ -27,19 +28,6 @@ sudo apt install git
 git clone git@github.com:jj0b/.dotfiles.git
 cd .dotfiles
 ./install.sh
-```
-
-- After the script is finished open `init.lua:`
-
-```bash
-vim ~/.config/nvim/init.lua
-```
-
-- In vim (actuall `neovim` as `vim` is aliased to it) install plugins:
-
-```vim
-:so %
-:PackerCompile or PackerSync
 ```
 
 ## Usage

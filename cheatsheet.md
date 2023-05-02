@@ -60,7 +60,7 @@ copy to + buffer: "+yy
 paste from + buffer: "+p
 visual line mode: V
 visual block mode: C-v
-select word and change multiple instances: *cgn<foo>Esc then . to change other instances
+select word and change multiple instances: \*cgn<foo>Esc then . to change other instances
 
 ### edit multiple lines
 
@@ -83,35 +83,35 @@ clear search: C-l
 
 #### buffers
 
-:ls         - list all buffers
-:b4         - switch to buffer number 4
-:bn         - switch to next buffer in the buffer list
-:bp         - switch to previous buffer in the buffer list
-:bf         - switch to first buffer in the buffer list
-:bl         - switch to last buffer in the buffer list
+:ls - list all buffers
+:b4 - switch to buffer number 4
+:bn - switch to next buffer in the buffer list
+:bp - switch to previous buffer in the buffer list
+:bf - switch to first buffer in the buffer list
+:bl - switch to last buffer in the buffer list
 :b foo<Tab> - switch by buffer name with tab-completion
-:b#         - switch to the alternate file
+:b# - switch to the alternate file
 
 #### window
 
-<Ctrl-W>+v       - Opens a new vertical split
-<Ctrl-W>+s       - Opens a new horizontal split
-<Ctrl-W>+c       - Closes a window
-<Ctrl-W>+o       - Makes current window the only one on screen and closes other windows
+<Ctrl-W>+v - Opens a new vertical split
+<Ctrl-W>+s - Opens a new horizontal split
+<Ctrl-W>+c - Closes a window
+<Ctrl-W>+o - Makes current window the only one on screen and closes other windows
 <Ctrl-W>+h/j/k/l - Moves the cursor to left/bottom/top/right
 
-:vsplit <filename>     - Split window vertically
-:split <filename>      - Split window horiontally
-:new [filename]        - Create new window
+:vsplit <filename> - Split window vertically
+:split <filename> - Split window horiontally
+:new [filename] - Create new window
 
 #### tabs
 
 :tabnew file.txt - open file.txt in a new tab
-:tabclose        - Close current tab
-:tabnext         - Go to next tab
-:tabprevious     - Go to previous tab
-:tablast         - Go to last tab
-:tabfirst        - Go to first tab
+:tabclose - Close current tab
+:tabnext - Go to next tab
+:tabprevious - Go to previous tab
+:tablast - Go to last tab
+:tabfirst - Go to first tab
 
 ### custom
 
@@ -140,7 +140,7 @@ resize windows: C-Up, C-Down, C-Left, C-Right
 navigate buffers, next: S-l
 navigate buffers, previous: S-h
 
-### source plugins with Packer 
+### source plugins with Packer
 
 source file: so %
 install Packer plugins: PackerInstall
@@ -155,6 +155,7 @@ update installed languages: TSUpdate
 ### nvim-surround
 
 #### Old text -- Command -- New text
+
 surr*ound_words ysiw) (surround_words)
 *make strings ys$" "make strings"
 [delete ar*ound me!] ds] delete around me!
@@ -197,7 +198,7 @@ change pane: <prefix> h, <prefix> j, <prefix> k, <prefix> l
 toggle pane full screen: <prefix> z
 close pane immediately: C-d
 close pane with confirmation: <prefix> x
-resize panes: <prefix> C-k, C-j, C-h, C-l 
+resize panes: <prefix> C-k, C-j, C-h, C-l
 
 ### windows
 
