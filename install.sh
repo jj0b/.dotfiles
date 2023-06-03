@@ -100,7 +100,7 @@ git submodule init
 git submodule update
 
 echo "Symlink NvChad customization"
-ln -s ~/.dotfiles/nvchad/custom ~/.config/nvim/lua/custom
+ln -s ~/.dotfiles/nvchad/custom ~/.dotfiles/nvim/.config/nvim/lua/
 
 echo "Installing typescript-language-server, eslint_d and prettierd, emmet-ls"
 npm install -g typescript-language-server eslint_d @fsouza/prettierd emmet-ls vscode-langservers-extracted
