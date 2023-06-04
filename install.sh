@@ -100,8 +100,11 @@ npm install -g typescript-language-server eslint_d @fsouza/prettierd emmet-ls vs
 echo "Install NVChad"
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
+echo "Remove default custom folder for NVChad"
+sudo rm -rf ~/.config/nvim/lua/custom/
+
 echo "Symlink NvChad customization"
-ln -s ~/.dotfiles/nvchad/custom ~/.dotfiles/nvim/.config/nvim/lua/
+ln -s ~/.dotfiles/nvchad/custom ~/.config/nvim/lua/
 
 echo "Configure miniconda for fish"
 conda init fish
