@@ -72,7 +72,6 @@ fi
 stow git
 stow fish
 stow tmux
-stow nvim
 stow kitty
 stow lsd
 
