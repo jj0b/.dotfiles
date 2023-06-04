@@ -95,18 +95,14 @@ fisher install acomagu/fish-async-prompt
 echo "Use nvm to install node LTS"
 nvm install lts
 
-echo "Setting up NvChad submodule"
-git submodule init
-git submodule update
-
-echo "Symlink NvChad customization"
-ln -s ~/.dotfiles/nvchad/custom ~/.dotfiles/nvim/.config/nvim/lua/
-
 echo "Installing typescript-language-server, eslint_d and prettierd, emmet-ls"
 npm install -g typescript-language-server eslint_d @fsouza/prettierd emmet-ls vscode-langservers-extracted
 
-echo "Install neovim plugins"
-$ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+echo "Install NVChad"
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+
+echo "Symlink NvChad customization"
+ln -s ~/.dotfiles/nvchad/custom ~/.dotfiles/nvim/.config/nvim/lua/
 
 echo "Configure miniconda for fish"
 conda init fish
