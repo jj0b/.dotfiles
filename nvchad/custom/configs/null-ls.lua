@@ -16,7 +16,7 @@ local sources = {
   -- Go
   formatting.gofmt,
 
-  lint.shellcheck,
+--  lint.shellcheck,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
