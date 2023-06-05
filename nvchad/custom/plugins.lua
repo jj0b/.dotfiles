@@ -29,6 +29,8 @@ local plugins = {
         "emmet-ls",
         "eslint_d",
         "python-lsp-server",
+        "pyright",
+        "black",
       },
     },
   },
