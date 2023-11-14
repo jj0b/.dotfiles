@@ -29,6 +29,7 @@ local plugins = {
         "emmet-ls",
         "eslint_d",
         "python-lsp-server",
+        "gopls"
       },
     },
   },
@@ -53,6 +54,7 @@ local plugins = {
         "json",
         "yaml",
         "svelte",
+        "go",
 
         -- low level
         "c",

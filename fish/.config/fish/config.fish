@@ -1,5 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    alias dcu 'docker-compose up'
+    alias dcd 'docker-compose down'
 end
 
 set -g theme_powerline_fonts yes

@@ -104,7 +104,10 @@ echo "Remove default custom folder for NVChad"
 sudo rm -rf ~/.config/nvim/lua/custom/
 
 echo "Symlink NvChad customization"
-ln -s ~/.dotfiles/nvchad/custom ~/.config/nvim/lua/
+ln -s ~/.dotfiles/nvchad/custom ~/.config/nvim/lua/custom
+
+echo "Configure screenshot preview display time"
+defaults write com.apple.screencaptureui "thumbnailExpiration" -float 15 && killall SystemUIServer
 
 echo "Configure miniconda for fish"
 conda init fish
@@ -112,3 +115,8 @@ source ~/.config/fish/config.fish
 conda config --set auto_activate_base False
 conda config --set changeps1 False
 source ~/.config/fish/config.fish
+
+echo "Golang formatting tools"
+go install github.com/incu6us/goimports-reviser/v3@latest
+go install mvdan.cc/gofumpt@latest
+go install github.com/segmentio/golines@latest
