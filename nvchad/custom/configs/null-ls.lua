@@ -18,6 +18,9 @@ local sources = {
 	formatting.goimports_reviser,
 	formatting.golines,
 
+	-- Python
+	null_ls.builtins.formatting.black,
+
 	--  lint.shellcheck,
 }
 
