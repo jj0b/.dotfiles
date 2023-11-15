@@ -1,3 +1,4 @@
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require("null-ls")
 
 local formatting = null_ls.builtins.formatting
@@ -24,10 +25,9 @@ local sources = {
 	--  lint.shellcheck,
 }
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
-	-- you can reuse a shared lspconfig on_attach callback here
+
 	debug = true,
 	sources = sources,
 	-- autoformat on save
