@@ -9,6 +9,9 @@ M.general = {
 
 		["<C-A-j>"] = { ":m .+1<CR>==", "Move line down" },
 		["<C-A-k>"] = { ":m .-2<CR>==", "Move line up" },
+
+		["<A-l>"] = { ":bnext<CR>", "Move to next buffer" },
+		["<A-h>"] = { ":bprevious<CR>", "Move to previous buffer" },
 	},
 
 	i = {
