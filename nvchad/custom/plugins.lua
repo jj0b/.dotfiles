@@ -71,6 +71,9 @@ local plugins = {
 		"kylechui/nvim-surround",
 	},
 	{
+		"airblade/vim-gitgutter",
+	},
+	{
 		"olexsmir/gopher.nvim",
 		ft = "go",
 		config = function(_, opts)
