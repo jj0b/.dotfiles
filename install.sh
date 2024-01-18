@@ -120,3 +120,10 @@ echo "Golang formatting tools"
 go install github.com/incu6us/goimports-reviser/v3@latest
 go install mvdan.cc/gofumpt@latest
 go install github.com/segmentio/golines@latest
+
+echo "Enable key repeat in VSCode to support Vim motions"
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+echo "Add ~/go/bin to PATH"
+set -gx PATH $PATH ~/go/bin
+
