@@ -29,6 +29,15 @@ M.general = {
 	},
 }
 
+M.vim_visual_multi = {
+	n = {
+		["<A-n>"] = { "<Plug>(VM-Find-Under)", "Find Under" },
+	},
+	x = {
+		["<A-n>"] = { "<Plug>(VM-Find-Subword-Under)", "Find Subword Under" },
+	},
+}
+
 M.gopher = {
 	plugin = true,
 	n = {

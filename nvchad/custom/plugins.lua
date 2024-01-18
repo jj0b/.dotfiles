@@ -74,6 +74,10 @@ local plugins = {
 		"airblade/vim-gitgutter",
 	},
 	{
+		"mg979/vim-visual-multi",
+		lazy = false,
+	},
+	{
 		"olexsmir/gopher.nvim",
 		ft = "go",
 		config = function(_, opts)

@@ -192,8 +192,8 @@ remove plugins not on list: <prefix> alt u
 
 ### panes
 
-split pane vertical: <prefix> |
-split pane horizontal: <prefix> -
+split pane vertical: <prefix> "
+split pane horizontal: <prefix> %
 change pane: <prefix> h, <prefix> j, <prefix> k, <prefix> l
 toggle pane full screen: <prefix> z
 close pane immediately: C-d
