@@ -1,12 +1,12 @@
 # install packages
 if [[ $OSTYPE == 'darwin'* ]]; then
 
-  # Check for Homebrew, install if needed
+  Check for Homebrew, install if needed
   if test ! $(which brew); then
     echo "Installing Homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi 
-
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  
   echo "Turning off Homebrew analytics..."
   brew analytics off
 
