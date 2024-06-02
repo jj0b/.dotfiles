@@ -15,7 +15,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 
   echo "Installing Homebrew Formulae..."
   brew install fish
-  brew install deno
+  # brew install deno
   brew install git
   brew install neovim
   brew install tmux
@@ -26,9 +26,9 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install bat
   brew install coreutils
   brew install lsd
-  brew install derailed/k9s/k9s
-  brew install kubectx
-  brew install --cask miniconda
+  # brew install derailed/k9s/k9s
+  # brew install kubectx
+  # brew install --cask miniconda
 
   echo "Installing Homebrew Cask..."
   brew install homebrew/cask 
@@ -38,7 +38,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew tap microsoft/git
   brew install --cask git-credential-manager-core
   brew install go-task/tap/go-task
-  brew install surrealdb/tap/surreal
+  #brew install surrealdb/tap/surreal
   brew install qlmarkdown
   
 else
@@ -109,12 +109,12 @@ ln -s ~/.dotfiles/nvchad/custom ~/.config/nvim/lua/custom
 echo "Configure screenshot preview display time"
 defaults write com.apple.screencaptureui "thumbnailExpiration" -float 15 && killall SystemUIServer
 
-echo "Configure miniconda for fish"
-conda init fish
-source ~/.config/fish/config.fish
-conda config --set auto_activate_base False
-conda config --set changeps1 False
-source ~/.config/fish/config.fish
+# echo "Configure miniconda for fish"
+# conda init fish
+# source ~/.config/fish/config.fish
+# conda config --set auto_activate_base False
+# conda config --set changeps1 False
+# source ~/.config/fish/config.fish
 
 echo "Golang formatting tools"
 go install github.com/incu6us/goimports-reviser/v3@latest
