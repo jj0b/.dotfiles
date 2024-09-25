@@ -98,7 +98,7 @@ echo "Installing typescript-language-server, eslint_d and prettierd, emmet-ls"
 npm install -g typescript-language-server eslint_d @fsouza/prettierd emmet-ls vscode-langservers-extracted
 
 echo "Install NVChad"
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 echo "Remove default custom folder for NVChad"
 sudo rm -rf ~/.config/nvim/lua/custom/
