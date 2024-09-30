@@ -55,11 +55,6 @@ ln -s ~/.dotfiles/nvchad/custom ~/.config/nvim/lua/custom
 echo "Enable key repeat in VSCode to support Vim motions..."
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
-# OhMyZsh
-
-echo "Installing OhMyZsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Starship prompt
 
 brew install starship
