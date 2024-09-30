@@ -1,0 +1,58 @@
+format = """
+[](fg:#454c5c bg:#454c5c)\
+$directory\
+${custom.directory_arrow_without_git}\
+${custom.directory_arrow_with_git}\
+$git_branch\
+${custom.clean_branch_arrow}\
+${custom.dirty_branch_arrow}\
+$git_status\
+${custom.dirty_final_arrow}\
+$cmd_duration \
+"""
+
+add_newline = false
+
+[line_break]
+disabled = true
+
+[directory]
+style = 'bg:#454c5c'
+format = '[ $path ]($style)'
+truncation_length = 8
+truncation_symbol = '…/'
+
+[custom.directory_arrow_without_git]
+when = '[[ ! -d .git ]]'
+format = '[](fg:#454c5c)'
+
+[custom.directory_arrow_with_git]
+detect_folders = ['.git']
+format = '[](fg:#454c5c bg:#a8bd91)'
+
+[git_branch]
+symbol = ''
+style = 'bg:#a8bd91 fg:#000000'
+format = '[ $symbol $branch ]($style)'
+
+[custom.clean_branch_arrow]
+when = '[[ -z "$(git status --porcelain)" && -d .git ]]'
+format = '[](fg:#a8bd91)'
+
+[custom.dirty_branch_arrow]
+when = '[[ -n "$(git status --porcelain)" ]]'
+format = '[](fg:#a8bd91 bg:#bf616a)'
+
+[git_status]
+modified = ' modified '
+untracked = ' untracked '
+staged = ' staged '
+format = '[${modified}${untracked}${staged}](fg:#000000 bg:#bf616a)'
+
+[custom.dirty_final_arrow]
+when = '[[ -n "$(git status --porcelain)" ]]'
+format = '[](fg:#bf616a)'
+
+[cmd_duration]
+min_time = 500
+format = ' [$duration](#8fbcbb)'
