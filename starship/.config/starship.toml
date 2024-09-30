@@ -47,7 +47,7 @@ format = '[](fg:#a8bd91 bg:#bf616a)'
 modified = ' modified '
 untracked = ' untracked '
 staged = ' staged '
-format = '[${modified}${untracked}${staged}${ahead_behind}](fg:#000000 bg:#bf616a)'
+format = '[${modified}${untracked}${staged}](fg:#000000 bg:#bf616a)'
 
 [custom.dirty_final_arrow]
 when = '[[ -n "$(git status --porcelain)" ]]'
