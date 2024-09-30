@@ -1,5 +1,3 @@
-# Homebrew packages
-
 Check for Homebrew, install if needed
 if test ! $(which brew); then
   echo "Installing Homebrew..."
@@ -20,24 +18,23 @@ brew install ripgrep
 brew install bat
 brew install coreutils
 brew install lsd
+brew install starship
+brew install qlmarkdown
 
-echo "Installing Homebrew Cask..."
 brew install homebrew/cask 
-
-echo "Installing Homebrew Cask apps..."
 brew install --cask kitty
 brew tap microsoft/git
 brew install --cask git-credential-manager-core
-brew install qlmarkdown
 
 # stow
 
+echo "Stowing directories..."
 stow git
-stow fish
 stow tmux
 stow kitty
 stow lsd
 stow zsh
+stow starship
 
 # Neovim
 
@@ -54,10 +51,6 @@ ln -s ~/.dotfiles/nvchad/custom ~/.config/nvim/lua/custom
 
 echo "Enable key repeat in VSCode to support Vim motions..."
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-
-# Starship prompt
-
-brew install starship
 
 # macOS
 
