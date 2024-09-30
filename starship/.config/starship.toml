@@ -2,12 +2,14 @@ format = """
 [](fg:#454c5c bg:#454c5c)\
 $directory\
 ${custom.directory_arrow_without_git}\
-${custom.directory_arrow_with_git}\
-$git_branch\
-${custom.clean_branch_arrow}\
-${custom.dirty_branch_arrow}\
-$git_status\
-${custom.dirty_final_arrow}\
+${custom.directory_arrow_with_clean_branch}\
+${custom.directory_arrow_with_dirty_branch}\
+${custom.git_branch_clean_leading_space}\
+${custom.git_branch_clean}\
+${custom.git_branch_dirty_leading_space}\
+${custom.git_branch_dirty}\
+${custom.clean_branch_final_arrow}\
+${custom.dirty_branch_final_arrow}\
 $cmd_duration \
 """
 
@@ -26,30 +28,37 @@ truncation_symbol = '…/'
 when = '[[ ! -d .git ]]'
 format = '[](fg:#454c5c)'
 
-[custom.directory_arrow_with_git]
-detect_folders = ['.git']
+[custom.directory_arrow_with_clean_branch]
+when = '[[ -z "$(git status --porcelain)" && -d .git ]]'
 format = '[](fg:#454c5c bg:#a8bd91)'
 
-[git_branch]
-symbol = ''
-style = 'bg:#a8bd91 fg:#000000'
-format = '[ $symbol $branch ]($style)'
+[custom.directory_arrow_with_dirty_branch]
+when = '[[ -n "$(git status --porcelain)" ]]'
+format = '[](fg:#454c5c bg:#bf616a)'
 
-[custom.clean_branch_arrow]
+[custom.git_branch_clean_leading_space]
+when = '[[ -z "$(git status --porcelain)" && -d .git ]]'
+format = '[ ](bg:#a8bd91)'
+
+[custom.git_branch_dirty_leading_space]
+when = '[[ -n "$(git status --porcelain)" ]]'
+format = '[ ](bg:#bf616a)'
+
+[custom.git_branch_clean]
+when = '[[ -z "$(git status --porcelain)" && -d .git ]]'
+command = "echo \" $(git symbolic-ref --short HEAD)\""
+style = 'bg:#a8bd91 fg:#000000'
+
+[custom.git_branch_dirty]
+when = '[[ -n "$(git status --porcelain)" ]]'
+command = "echo \" $(git symbolic-ref --short HEAD)\""
+style = 'bg:#bf616a fg:#000000'
+
+[custom.clean_branch_final_arrow]
 when = '[[ -z "$(git status --porcelain)" && -d .git ]]'
 format = '[](fg:#a8bd91)'
 
-[custom.dirty_branch_arrow]
-when = '[[ -n "$(git status --porcelain)" ]]'
-format = '[](fg:#a8bd91 bg:#bf616a)'
-
-[git_status]
-modified = ' modified '
-untracked = ' untracked '
-staged = ' staged '
-format = '[${modified}${untracked}${staged}](fg:#000000 bg:#bf616a)'
-
-[custom.dirty_final_arrow]
+[custom.dirty_branch_final_arrow]
 when = '[[ -n "$(git status --porcelain)" ]]'
 format = '[](fg:#bf616a)'
 
