@@ -25,7 +25,7 @@ truncation_length = 8
 truncation_symbol = '…/'
 
 [custom.directory_arrow_without_git]
-when = '[[ ! -d .git ]]'
+when = '[[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ]]'
 format = '[](fg:#454c5c)'
 
 [custom.directory_arrow_with_clean_branch]
