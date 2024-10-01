@@ -16,3 +16,9 @@ alias cat='bat'
 alias dot='cd ~/.dotfiles'
 alias cs='vim ~/.dotfiles/cheatsheet.md'
 
+# set DVM path
+export DVM_DIR="/Users/jason/.dvm"
+export PATH="$DVM_DIR/bin:$PATH"
+
+# add Go binaries to the PATH
+export PATH="$PATH:$HOME/go/bin"

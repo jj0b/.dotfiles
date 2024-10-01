@@ -10,13 +10,16 @@ end
 # Add Go binaries to the PATH
 set -gx PATH $PATH ~/go/bin
 
+# Add DVM binaries to the PATH
+set -gx PATH $PATH ~/.dvm/bin
+
+# fast node manager
+fnm env | source
+
 # Universal environment variables
 set -Ux PAGER less
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
-
-# fast node manager
-fnm env | source
 
 # Commands only for interactive sessions
 if status is-interactive

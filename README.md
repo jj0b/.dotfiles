@@ -1,5 +1,7 @@
 # .dotfiles
 
+This sets a macOS machine up with my preferred tooling and theme, [Nord](https://www.nordtheme.com/). The `install.sh` script sets up `fish` shell but if you prefer `zsh` I have a `zsh` folder that you could stow. With `zsh` you could install `starship` from `homebrew` for a nice prompt.
+
 ## Prerequisites
 
 ### Nerd Fonts Symbols Only
