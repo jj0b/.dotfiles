@@ -18,8 +18,8 @@ brew install ripgrep
 brew install bat
 brew install coreutils
 brew install lsd
-brew install starship
 brew install qlmarkdown
+brew install fish
 
 brew install homebrew/cask 
 brew install --cask kitty
@@ -33,8 +33,24 @@ stow git
 stow tmux
 stow kitty
 stow lsd
-stow zsh
-stow starship
+mv ~/.config/fish/config.fish ~/.config/fish/config.fish.backup
+stow fish
+
+# fish
+
+echo "Add fish to valid login shells..."
+command -v fish | sudo tee -a /etc/shells
+
+echo "Use fish as default shell..."
+sudo chsh -s $(which fish) $USER
+
+echo "Install fisher plugin manager for fish shell"
+exec fish
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+
+fisher install oh-my-fish/plugin-brew
+fisher install oh-my-fish/theme-bobthefish
+fisher install oh-my-fish/plugin-extract
 
 # Neovim
 
