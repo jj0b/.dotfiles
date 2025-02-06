@@ -29,6 +29,9 @@ if status is-interactive
     alias cat 'bat'
     alias dot 'cd ~/.dotfiles'
     alias cs 'vim ~/.dotfiles/cheatsheet.md'
+    alias tg 'templ generate'
+    alias dcu 'docker compose up --build'
+    alias dcd 'docker compose down'
 end
 
 # bobthefish theme customization
