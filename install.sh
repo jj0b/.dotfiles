@@ -10,19 +10,9 @@ echo "Updating Homebrew..."
 brew update  
 
 echo "Installing Homebrew Formulae..."
-brew install neovim
-brew install tmux
-brew install stow
-brew install fzf
-brew install ripgrep
-brew install bat
-brew install coreutils
-brew install lsd
 brew install qlmarkdown
-brew install fish
 
 brew install homebrew/cask 
-brew install --cask kitty
 brew tap microsoft/git
 brew install --cask git-credential-manager-core
 
@@ -31,26 +21,9 @@ brew install --cask git-credential-manager-core
 echo "Stowing directories..."
 stow git
 stow tmux
-stow kitty
+stow ghostty
+stow zsh
 stow lsd
-mv ~/.config/fish/config.fish ~/.config/fish/config.fish.backup
-stow fish
-
-# fish
-
-echo "Add fish to valid login shells..."
-command -v fish | sudo tee -a /etc/shells
-
-echo "Use fish as default shell..."
-sudo chsh -s $(which fish) $USER
-
-echo "Install fisher plugin manager for fish shell"
-exec fish
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-
-fisher install oh-my-fish/plugin-brew
-fisher install oh-my-fish/theme-bobthefish
-fisher install oh-my-fish/plugin-extract
 
 # Neovim
 
