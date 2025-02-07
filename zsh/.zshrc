@@ -5,7 +5,19 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Include homebrew in the path
+export PATH="/opt/homebrew/bin:$PATH"
+
+# Include Deno Version Manager in the path
+export DVM_DIR="/Users/jason/.dvm"
+export PATH="$DVM_DIR/bin:$PATH"
+
+# Include Go binaries to the path
+export PATH="$PATH:$HOME/go/bin"
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -29,12 +41,16 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # Add in snippets
+zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -63,13 +79,6 @@ zstyle ':completion:*' menu no
 # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Shell integrations
-eval "$(fzf --zsh)"
-# eval "$(zoxide init --cmd cd zsh)"
-
-# include homebrew in path
-export PATH="/opt/homebrew/bin:$PATH"
-
 # load nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -85,11 +94,6 @@ alias tg='templ generate'
 alias dcu 'docker compose up --build'
 alias dcd 'docker compose down'
 
-# Set Deno Version Manager path
-export DVM_DIR="/Users/jason/.dvm"
-export PATH="$DVM_DIR/bin:$PATH"
-
-# Add Go binaries to the PATH
-export PATH="$PATH:$HOME/go/bin"
-
-
+# Shell integrations
+eval "$(fzf --zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
