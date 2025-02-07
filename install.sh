@@ -1,21 +1,3 @@
-Check for Homebrew, install if needed
-if test ! $(which brew); then
-  echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-echo "Turning off Homebrew analytics..."
-brew analytics off
-echo "Updating Homebrew..."
-brew update  
-
-echo "Installing Homebrew Formulae..."
-brew install qlmarkdown
-
-brew install homebrew/cask 
-brew tap microsoft/git
-brew install --cask git-credential-manager-core
-
 # stow
 
 echo "Stowing directories..."
