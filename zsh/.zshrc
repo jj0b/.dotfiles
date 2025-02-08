@@ -12,6 +12,35 @@ fi
 # Include homebrew in the path
 export PATH="/opt/homebrew/bin:$PATH"
 
+# Node Version Manager
+if [ -n "$TMUX" ]; then
+  if [ -f "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+    source "/opt/homebrew/opt/nvm/nvm.sh"
+  fi
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+# Optional: Auto-use .nvmrc if present in directory
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local nvmrc_path="$(nvm_find_nvmrc)"
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 # Include Deno Version Manager in the path
 export DVM_DIR="/Users/jason/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
@@ -78,11 +107,6 @@ zstyle ':completion:*' menu no
 # zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-# load nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # Aliases
 alias ls='lsd -la'

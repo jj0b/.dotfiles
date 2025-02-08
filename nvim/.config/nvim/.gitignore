@@ -1,0 +1,12 @@
+# Plugin management
+lazy-lock.json
+
+# Language server installations and package management
+mason/
+
+# Neovim temporary files
+*.swp
+*.swo
+
+# Custom generated files
+.luarc.json
