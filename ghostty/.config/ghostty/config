@@ -2,3 +2,4 @@ font-family = "JetBrainsMono Nerd Font"
 font-size = 14
 theme = nord
 macos-option-as-alt = true
+background-opacity = 0.9

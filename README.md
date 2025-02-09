@@ -1,10 +1,10 @@
 # .dotfiles
 
-Note that if you are not me and are wanting to use these that before installation you will want to edit your name and email address in `git/.gitconfig` to use your own. Also note that my flake has the name `zen` but you can update that in the flake to whatever you want, then make sure to use your new name when calling `darwin-rebuild`.
+Note that if you are not me and are wanting to use my dotfiles, that before installation you will want to edit your name and email address in `git/.gitconfig` to be your own. Also note that my `flake` has the name `zen` but you can update that in the `flake` to whatever you want, then make sure to use your new name when calling `darwin-rebuild`.
 
-This repo contains my dotfiles for `zsh` (with `p10k`), `tmux`, `nvim`, `git`, and `ghostty`, as well as a `nix` flake to fully configure my macOS system for development.
+This repo contains my dotfiles for `zsh` (with `p10k`), `tmux`, `nvim`, `git`, and `ghostty`, as well as a `nix` `flake` to fully configure my macOS system for development.
 
-Currently `nix` flakes aren't usable if they are symlinked so it is not possible to `stow` the `nix` folder. Instead the current setup flow is to install `nix`, copy the `nix` folder to your home directory, and run the `darwin-rebuild` command on it there.
+Currently `nix` `flakes` aren't usable if they are symlinked so it is not possible to `stow` the `nix` folder. Instead the current setup flow is to install `nix`, copy the `nix` folder to your home directory, and run the `darwin-rebuild` command on it there.
 
 Once `nix` has installed all the prerequisites and configured the system then the dotfiles are ready to be symlinked with `stow` which can be done for all of them by running the install script.
 
