@@ -117,6 +117,7 @@ alias cs='vim ~/.dotfiles/cheatsheet.md'
 alias tg='templ generate'
 alias dcu 'docker compose up --build'
 alias dcd 'docker compose down'
+alias dr='darwin-rebuild switch --flake ~/nix#zen'
 
 # Shell integrations
 eval "$(fzf --zsh)"
