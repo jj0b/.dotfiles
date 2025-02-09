@@ -54,10 +54,8 @@ return {
   {
     "echasnovski/mini.surround",
     event = "VeryLazy",
-    config = function()
-      require("mini.surround").setup {
-        search_method = "cover_or_next", -- Fixes the extra space issue
-      }
+    config = function(_, opts)
+      require("mini.surround").setup(opts)
     end,
   },
 
