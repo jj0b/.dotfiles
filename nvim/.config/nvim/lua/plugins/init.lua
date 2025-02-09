@@ -2,7 +2,7 @@ return {
   -- Formatting (extends NVChad defaults)
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- format on save
+    event = "BufWritePre", -- format on save
     opts = require "configs.conform",
   },
 
@@ -36,9 +36,9 @@ return {
     end,
   },
 
-   -- Auto-pairs for characters like (), [], {}, '', ""
-   -- Default: Automatically pairs characters when typed
-   {
+  -- Auto-pairs for characters like (), [], {}, '', ""
+  -- Default: Automatically pairs characters when typed
+  {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
     config = function(_, opts)
@@ -54,8 +54,10 @@ return {
   {
     "echasnovski/mini.surround",
     event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.surround").setup(opts)
+    config = function()
+      require("mini.surround").setup {
+        search_method = "cover_or_next", -- Fixes the extra space issue
+      }
     end,
   },
 
@@ -122,9 +124,9 @@ return {
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     config = function()
-      require("tailwindcss-colorizer-cmp").setup({
+      require("tailwindcss-colorizer-cmp").setup {
         color_square_width = 2,
-      })
+      }
     end,
   },
 
@@ -138,31 +140,31 @@ return {
         css_fn = true,
       },
     },
-  }, 
+  },
 
   -- Go development tools
   -- Default keybindings:
   --   Commands (in normal mode):
   --     ]e, [e   - Next/previous error
   --     ]g, [g   - Next/previous warning
-  --   
+  --
   --   Code actions:
   --     <leader>ga - Add tags to struct
   --     <leader>gr - Remove tags from struct
   --     <leader>gi - Add/Remove interface implementation
   --     <leader>gf - Fill struct with default values
-  --   
+  --
   --   Testing:
   --     <leader>gt - Run test under cursor
   --     <leader>gT - Run all tests in file
   --     <leader>gl - Run last test
   --     <leader>gc - Toggle test coverage
-  --   
+  --
   --   Code generation:
   --     <leader>ge - Generate error handling code
   --     <leader>gm - Generate method stubs
   --     <leader>gs - Generate constructor function
-  --   
+  --
   --   Go commands:
   --     <leader>gn - Go generate
   --     <leader>gj - Go to definition
@@ -170,7 +172,7 @@ return {
   --     <leader>gd - Go to declaration
   {
     "ray-x/go.nvim",
-    dependencies = {  -- optional packages
+    dependencies = { -- optional packages
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
@@ -178,9 +180,9 @@ return {
     config = function()
       require("go").setup()
     end,
-    event = {"CmdlineEnter"},
-    ft = {"go", 'gomod'},
-    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
 
   -- Go test coverage
@@ -193,20 +195,20 @@ return {
       "nvim-neotest/neotest-go",
     },
     config = function()
-      require("neotest").setup({
+      require("neotest").setup {
         adapters = {
-          require("neotest-go"),
-        }
-      })
-    end
+          require "neotest-go",
+        },
+      }
+    end,
   },
 
   -- Debug Adapter Protocol
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      "leoluz/nvim-dap-go",    -- Go debug adapter
-      "rcarriga/nvim-dap-ui",  -- UI for debugging
+      "leoluz/nvim-dap-go", -- Go debug adapter
+      "rcarriga/nvim-dap-ui", -- UI for debugging
     },
     config = function()
       require("dap-go").setup()
@@ -214,5 +216,3 @@ return {
     end,
   },
 }
-
-
