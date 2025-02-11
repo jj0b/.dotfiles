@@ -20,6 +20,15 @@ return {
     lazy = false,
   },
 
+  -- File explorer with adaptive width
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = function(_, opts)
+      opts.view = opts.view or {} -- Ensure view table exists
+      opts.view.adaptive_size = true -- Enable adaptive resizing
+    end,
+  },
+
   -- Syntax highlighting (extends NVChad defaults)
   {
     "nvim-treesitter/nvim-treesitter",
