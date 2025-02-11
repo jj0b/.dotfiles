@@ -5,10 +5,16 @@
 ---@type ChadrcConfig
 local M = {}
 
+-- Function to check if we're on Apple Silicon
+local function is_apple_silicon()
+  local arch = vim.loop.os_uname().machine
+  return arch == "arm64"  -- Apple Silicon Macs report as arm64
+end
+
 M.base46 = {
   theme = "nord",
 
-  hl_override = {
+  hl_override = is_apple_silicon() and {
     Normal = { bg = "NONE" },
     NormalNC = { bg = "NONE" },
     CursorLine = { bg = "NONE" },
@@ -22,7 +28,8 @@ M.base46 = {
     NvimTreeNormal = { bg = "NONE" },
     NvimTreeNormalNC = { bg = "NONE" },
     NvimTreeEndOfBuffer = { bg = "NONE" },
-  },
+  } or {},  -- Empty table for non-Apple Silicon machines
+  
   -- hl_override = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },

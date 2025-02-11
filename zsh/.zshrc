@@ -5,41 +5,35 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -f "/opt/homebrew/bin/brew" ]] then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+# Detect CPU architecture
+ARCH=$(uname -m)
+
+if [[ "$ARCH" == "arm64" ]]; then
+  # Apple Silicon (M1, M2, etc.)
+  export HOMEBREW_PREFIX="/opt/homebrew"
+else
+  # Intel Macs
+  export HOMEBREW_PREFIX="/usr/local"
 fi
 
-# Include homebrew in the path
-export PATH="/opt/homebrew/bin:$PATH"
+# Initialize Homebrew if installed
+if [[ -f "$HOMEBREW_PREFIX/bin/brew" ]]; then
+  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+fi
 
-# Node Version Manager
+# Include Homebrew in the path
+export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+
+# Node Version Manager (NVM) Setup
 if [ -n "$TMUX" ]; then
-  if [ -f "/opt/homebrew/opt/nvm/nvm.sh" ]; then
-    source "/opt/homebrew/opt/nvm/nvm.sh"
+  if [ -f "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]; then
+    source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
   fi
 fi
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-
-# Optional: Auto-use .nvmrc if present in directory
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local nvmrc_path="$(nvm_find_nvmrc)"
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
-    fi
-  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # Load NVM
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion"  # Load NVM Bash Completion
 
 # Include Deno Version Manager in the path
 export DVM_DIR="/Users/jason/.dvm"
