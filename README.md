@@ -4,7 +4,7 @@ Note that if you are not me and are wanting to use my dotfiles, that before inst
 
 This repo contains my dotfiles for `zsh` (with `p10k`), `tmux`, `nvim`, `git`, and `ghostty`, as well as a `nix` `flake` to fully configure my macOS system for development. You can edit the flake to install the nixpks, homebrew formulae, casks, or taps that yuo want, as well as configure your macOS systems preferences.
 
-Currently `nix` `flakes` aren't usable if they are symlinked so it is not possible to `stow` the `nix` folder. Instead the current setup flow is to install `nix`, copy the `nix` folder to your home directory, and run the `darwin-rebuild` command on it there.
+Currently `nix` `flakes` aren't usable if they are symlinked so it is not possible to `stow` the `nix` folder. Instead my current setup is to just keep my `nix` folder in my `.dotfiles` folder and to just run the `darwin-rebuild` command on it there.
 
 Once `nix` has installed all the prerequisites and configured the system then the dotfiles are ready to be symlinked with `stow` which can be done for all of them by running the install script.
 
@@ -21,7 +21,7 @@ When answering the questions during `nix` installation choose to only install `n
 
 ## Use the flake
 
-To bootstrip nix-darwin, the firt time you use your flake you do:
+To bootstrip nix-darwin, the first time you use your flake you do:
 
 ```bash
 nix run nix-darwin/master#darwin-rebuild -- switch --flake ~/.dotfiles/nix#zen
