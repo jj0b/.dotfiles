@@ -4,7 +4,7 @@ local options = {
   formatters_by_ft = {
     -- Lua
     lua = { "stylua" },
-    
+
     -- Web Development
     html = { "rustywind", "prettier" },
     css = { "prettier" },
@@ -14,26 +14,26 @@ local options = {
     typescriptreact = { "rustywind", "prettier" },
     svelte = { "rustywind", "prettier" },
     graphql = { "prettier" },
-    
+
     -- Go
     go = { "gofumpt" },
     templ = { "templ" },
-    
+
     -- Shell
     sh = { "shfmt" },
-    
+
     -- Data & Config Formats
     json = { "prettier" },
     yaml = { "prettier" },
     toml = { "taplo" },
-    
+
     -- Documentation
     markdown = { "prettier" },
-    
+
     -- Docker
     dockerfile = { "dockerfile-formatter" },
     docker_compose = { "prettier" },
-    
+
     -- Build Systems
     make = { "makefmt" },
   },

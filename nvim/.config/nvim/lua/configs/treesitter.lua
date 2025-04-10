@@ -8,7 +8,7 @@ return {
     -- Vim/Editor
     "vim",
     "vimdoc",
-    
+
     -- Web Development
     "html",
     "css",
@@ -17,8 +17,8 @@ return {
     "tsx",
     "svelte",
     "graphql",
-    "regex",     
-    
+    "regex",
+
     -- Backend Languages
     "python",
     "rust",
@@ -27,12 +27,12 @@ return {
     "gosum",
     "templ",
     "php",
-    
+
     -- Shell/System
     "bash",
     "make",
     "awk",
-    
+
     -- Data/Config Formats
     "json",
     "yaml",
@@ -40,25 +40,25 @@ return {
     "xml",
     "ini",
     "csv",
-    
+
     -- Documentation/Markup
     "markdown",
     "markdown_inline",
     "rst",
-    
+
     -- Database
     "sql",
-    
+
     -- Blockchain
     "solidity",
-    
+
     -- DevOps/Tools
     "dockerfile",
     "gitignore",
     "hcl",
     "cmake",
     "proto",
-    
+
     -- Scripting
     "lua",
   },
@@ -69,4 +69,5 @@ return {
   },
 
   indent = { enable = true },
-} 
+}
+

@@ -17,39 +17,39 @@ local nvlsp = require "nvchad.configs.lspconfig"
 -- servers with default config
 local servers = {
   -- Lua
-  "lua_ls",                   -- Lua language server
+  "lua_ls", -- Lua language server
 
   -- Web Development
-  "html",                     -- HTML language server
-  "htmx",                     -- HTMX language server
-  "cssls",                    -- CSS language server
-  "ts_ls",                    -- TypeScript/JavaScript language server
-  "tailwindcss",              -- Tailwind CSS language server
-  "svelte",                   -- Svelte language server
-  "emmet_ls",                 -- Emmet language server for HTML/CSS snippets
-  "graphql",                  -- GraphQL language server
-  
+  "html", -- HTML language server
+  "htmx", -- HTMX language server
+  "cssls", -- CSS language server
+  "ts_ls", -- TypeScript/JavaScript language server
+  "tailwindcss", -- Tailwind CSS language server
+  "svelte", -- Svelte language server
+  "emmet_ls", -- Emmet language server for HTML/CSS snippets
+  "graphql", -- GraphQL language server
+
   -- Go
-  "gopls",                    -- Go language server
-  "templ",                    -- Go template language server
-  
+  "gopls", -- Go language server
+  "templ", -- Go template language server
+
   -- Python
-  "pyright",                  -- Static type checker for Python
-  "ruff",                     -- Fast Python linter
-  
+  "pyright", -- Static type checker for Python
+  "ruff", -- Fast Python linter
+
   -- Shell/System
-  "bashls",                   -- Bash language server
-  
+  "bashls", -- Bash language server
+
   -- Data & Config Formats
-  "jsonls",                   -- JSON language server
-  "yamlls",                   -- YAML language server
-  "taplo",                    -- TOML language server
-  
+  "jsonls", -- JSON language server
+  "yamlls", -- YAML language server
+  "taplo", -- TOML language server
+
   -- Database
-  "sqlls",                    -- SQL language server
-  
+  "sqlls", -- SQL language server
+
   -- Docker/DevOps
-  "dockerls",                 -- Dockerfile language server
+  "dockerls", -- Dockerfile language server
   "docker_compose_language_service", -- Docker Compose language server
 }
 
@@ -62,6 +62,20 @@ for _, lsp in ipairs(servers) do
 end
 
 -- Custom server configurations
+
+-- Lua language server configuration
+lspconfig.lua_ls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+}
 
 -- ESLint configuration
 lspconfig.eslint.setup {
@@ -87,10 +101,10 @@ lspconfig.tailwindcss.setup {
       experimental = {
         classRegex = {
           -- Support for template strings in classnames
-          '`([^`]*)`',
+          "`([^`]*)`",
           -- Support for clsx/cva function calls
-          'clsx\\(([^)]*)\\)',
-          'cva\\(([^)]*)\\)',
+          "clsx\\(([^)]*)\\)",
+          "cva\\(([^)]*)\\)",
         },
       },
     },
