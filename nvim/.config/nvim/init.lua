@@ -1,7 +1,8 @@
-require "types"
-
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
+
+-- Disable netrw
+require "configs.netrw"
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -13,10 +14,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local lazy_opts = require "configs.lazy"
-
 -- load plugins
-require("lazy.nvim").setup({
+require("lazy").setup({
   {
     "NvChad/NvChad",
     lazy = false,
@@ -25,7 +24,7 @@ require("lazy.nvim").setup({
   },
 
   { import = "plugins" },
-}, lazy_opts)
+})
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")

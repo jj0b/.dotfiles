@@ -24,7 +24,7 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     opts = function(_, opts)
-      opts.view = opts.view or {} -- Ensure view table exists
+      opts.view = opts.view or {}    -- Ensure view table exists
       opts.view.adaptive_size = true -- Enable adaptive resizing
     end,
   },
@@ -214,8 +214,9 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      "leoluz/nvim-dap-go", -- Go debug adapter
-      "rcarriga/nvim-dap-ui", -- UI for debugging
+      "leoluz/nvim-dap-go",    -- Go debug adapter
+      "rcarriga/nvim-dap-ui",  -- UI for debugging
+      "nvim-neotest/nvim-nio", -- Required by nvim-dap-ui
     },
     config = function()
       require("dap-go").setup()
