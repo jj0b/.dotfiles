@@ -2,7 +2,8 @@
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
 -- Please read that file to know all available options
 
----@type ChadrcConfig
+---@class ChadrcConfig
+---@field base46 table
 local M = {}
 
 -- Function to check if we're on Apple Silicon

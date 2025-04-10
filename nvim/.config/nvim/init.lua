@@ -1,3 +1,5 @@
+require "types"
+
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
@@ -11,10 +13,10 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local lazy_config = require "configs.lazy"
+local lazy_opts = require "configs.lazy"
 
 -- load plugins
-require("lazy").setup({
+require("lazy.nvim").setup({
   {
     "NvChad/NvChad",
     lazy = false,
@@ -23,7 +25,7 @@ require("lazy").setup({
   },
 
   { import = "plugins" },
-}, lazy_config)
+}, lazy_opts)
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
