@@ -210,7 +210,24 @@
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_3",
-        "oven-sh-bun": "oven-sh-bun"
+        "oven-sh-bun": "oven-sh-bun",
+        "supabase-tap": "supabase-tap"
+      }
+    },
+    "supabase-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745758850,
+        "narHash": "sha256-fhwpT6oFaiaSFELXG0Bc3g5aupmJ2c5LZ3jGazB5R2A=",
+        "owner": "supabase",
+        "repo": "homebrew-tap",
+        "rev": "f67f4fef516241eb4ac232fc3ed7a84d0f9e469d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "supabase",
+        "repo": "homebrew-tap",
+        "type": "github"
       }
     }
   },
