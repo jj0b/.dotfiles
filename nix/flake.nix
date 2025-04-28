@@ -66,6 +66,7 @@
         brews = [
           "bun"
           "nvm"
+          "pnpm"
         ];
         
         casks = [
