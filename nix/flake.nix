@@ -26,13 +26,11 @@
       url = "github:oven-sh/homebrew-bun";
       flake = false;
     };
-    supabase-tap = {
-      url = "github:supabase/homebrew-tap";
-      flake = false;
-    };
+
+
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, microsoft-git, oven-sh-bun, supabase-tap }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, microsoft-git, oven-sh-bun }:
   let
     configuration = { pkgs, ... }: {
 
@@ -62,20 +60,21 @@
           pkgs.tmuxPlugins.continuum
           pkgs.tmuxPlugins.yank
           pkgs.tmuxPlugins.vim-tmux-navigator
+          pkgs.gnupg
+          pkgs.doppler
+          pkgs.supabase-cli
         ];
 
       homebrew = {
         enable = true;
 
         taps = [
-          "supabase/tap"
         ];
 
         brews = [
           "bun"
           "nvm"
           "pnpm"
-          "supabase"
         ];
         
         casks = [
@@ -111,6 +110,7 @@
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
+      nix.settings.download-buffer-size = "128M";
 
       # Enable alternative shell support in nix-darwin.
       # programs.fish.enable = true;
@@ -150,7 +150,6 @@
               "homebrew/homebrew-bundle" = homebrew-bundle;
               "microsoft/homebrew-git" = microsoft-git;
               "oven-sh/homebrew-bun" = oven-sh-bun;
-              "supabase/homebrew-tap" = supabase-tap;
             };
 
             mutableTaps = false;
