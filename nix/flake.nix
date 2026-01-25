@@ -75,6 +75,7 @@
           "bun"
           "nvm"
           "pnpm"
+          "stripe-cli"
           "supabase"
         ];
         
