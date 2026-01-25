@@ -75,6 +75,7 @@
           "bun"
           "nvm"
           "pnpm"
+          "supabase"
         ];
         
         casks = [
@@ -131,9 +132,6 @@
     # $ darwin-rebuild build --flake .#zen
     darwinConfigurations."zen" = nix-darwin.lib.darwinSystem {
       modules = [ 
-        ({ config, ... }: {
-          homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
-        })
         configuration
         nix-homebrew.darwinModules.nix-homebrew
         {
