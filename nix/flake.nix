@@ -18,10 +18,6 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
-    microsoft-git = {
-      url = "github:microsoft/homebrew-git";
-      flake = false;
-    };
     oven-sh-bun = {
       url = "github:oven-sh/homebrew-bun";
       flake = false;
@@ -30,7 +26,7 @@
 
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, microsoft-git, oven-sh-bun }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, oven-sh-bun }:
   let
     configuration = { pkgs, ... }: {
 
@@ -69,6 +65,9 @@
         enable = true;
 
         taps = [
+          "homebrew/core"
+          "homebrew/cask"
+          "homebrew/bundle"
         ];
 
         brews = [
@@ -85,8 +84,8 @@
         ];
 
         onActivation.cleanup = "zap";
-        onActivation.autoUpdate = true;
-        onActivation.upgrade = true;
+        onActivation.autoUpdate = false;
+        onActivation.upgrade = false;
       };
 
       system.defaults = {
@@ -119,6 +118,7 @@
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
+      system.primaryUser = "jason";
 
       # Used for backwards compatibility, please read the changelog before changing.
       # $ darwin-rebuild changelog
@@ -147,7 +147,6 @@
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
               "homebrew/homebrew-bundle" = homebrew-bundle;
-              "microsoft/homebrew-git" = microsoft-git;
               "oven-sh/homebrew-bun" = oven-sh-bun;
             };
 

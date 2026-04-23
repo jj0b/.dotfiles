@@ -1,7 +1,8 @@
 dofile(vim.g.base46_cache .. "mason")
 
 return {
-  PATH = "skip",
+  -- Make Mason-installed binaries available in Neovim sessions.
+  PATH = "append",
 
   ui = {
     icons = {
@@ -26,11 +27,11 @@ return {
     "emmet-ls", -- Emmet language server for HTML/CSS snippets
     "prettier", -- Multi-language formatter
     "eslint_d", -- JavaScript/TypeScript linter (daemon)
+    "eslint-lsp", -- ESLint language server
     "css-lsp", -- CSS language server
     "rustywind", -- Tailwind class organizer
 
     -- Python
-    "python-lsp-server", -- Python language server
     "pyright", -- Static type checker for Python
     "black", -- Python formatter
     "ruff", -- Fast Python linter
@@ -55,6 +56,8 @@ return {
     "yamlfmt", -- YAML formatter
     "yamllint", -- YAML linter
     "taplo", -- TOML language server
+    "sql-language-server", -- SQL language server
+    "pgformatter", -- PostgreSQL SQL formatter (pg_format)
 
     -- Docker/DevOps
     "dockerfile-language-server", -- Dockerfile language server
@@ -65,6 +68,9 @@ return {
     "marksman", -- Markdown language server
     "codespell", -- Spell checker for code
     "misspell", -- Another spell checker
+
+    -- Build Systems
+    "makefmt", -- Makefile formatter
 
     -- Docker
     "dockerfile-formatter", -- Dockerfile formatter

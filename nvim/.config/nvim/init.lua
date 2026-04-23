@@ -1,5 +1,6 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
+vim.opt.termguicolors = true
 
 -- Disable netrw
 require "configs.netrw"

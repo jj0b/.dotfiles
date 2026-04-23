@@ -19,6 +19,9 @@ local options = {
     go = { "gofumpt" },
     templ = { "templ" },
 
+    -- Python
+    python = { "black" },
+
     -- Shell
     sh = { "shfmt" },
 
@@ -26,6 +29,7 @@ local options = {
     json = { "prettier" },
     yaml = { "prettier" },
     toml = { "taplo" },
+    sql = { "pg_format" },
 
     -- Documentation
     markdown = { "prettier" },
@@ -39,7 +43,7 @@ local options = {
   },
 
   format_on_save = {
-    timeout_ms = 500,
+    timeout_ms = 1500,
     lsp_fallback = true,
   },
 }

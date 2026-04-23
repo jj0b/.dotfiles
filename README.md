@@ -35,6 +35,43 @@ darwin-rebuild switch --flake ~/.dotfiles/nix#zen
 
 Or you can use the alias I added in the `~/.zshrc` file, `dr`.
 
+### Stable update workflow (deterministic rebuilds)
+
+With `homebrew.onActivation.autoUpdate = false` and `homebrew.onActivation.upgrade = false`, your rebuilds stay deterministic unless you intentionally update inputs.
+
+1. Review current state:
+
+```bash
+cd ~/.dotfiles
+git status
+```
+
+2. Update flake inputs only when you want:
+
+```bash
+nix flake update ./nix
+```
+
+3. Review lockfile changes:
+
+```bash
+git diff -- nix/flake.lock
+```
+
+4. Apply the updated system:
+
+```bash
+darwin-rebuild switch --flake ~/.dotfiles/nix#zen
+```
+
+5. If anything looks wrong, roll back:
+
+```bash
+darwin-rebuild switch --rollback
+```
+
+Tip: avoid running `brew update`/`brew upgrade` manually unless you intentionally want to drift from your locked state.
+
 ## Install the dotfiles
 
 With all the dependencies installed you can now install the dotfiles with:
