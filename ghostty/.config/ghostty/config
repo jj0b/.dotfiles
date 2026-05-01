@@ -3,3 +3,7 @@ font-size = 14
 theme = nord
 macos-option-as-alt = true
 background-opacity = 0.95
+
+unfocused-split-opacity = 0.50
+unfocused-split-fill = #1F2430
+split-divider-color = #88C0D0
