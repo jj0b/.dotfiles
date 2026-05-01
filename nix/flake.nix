@@ -2,6 +2,11 @@
   description = "zen nix-darwin system flake";
 
   inputs = {
+    # Neovim in `environment.systemPackages` comes from this pin (pkgs.neovim).
+    # To pick up a newer Neovim (e.g. patch releases like 0.12.1 → 0.12.2), refresh
+    # the lock — there is no separate Neovim flake input:
+    #   nix flake update ./nix
+    # then `darwin-rebuild switch --flake ~/.dotfiles/nix#zen` (or your `dr` alias).
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -52,10 +57,7 @@
           pkgs.cargo     
           pkgs.rust-analyzer
           pkgs.tmuxPlugins.sensible
-#          pkgs.tmuxPlugins.resurrect
-          pkgs.tmuxPlugins.continuum
           pkgs.tmuxPlugins.yank
-          pkgs.tmuxPlugins.vim-tmux-navigator
           pkgs.gnupg
           pkgs.doppler
           pkgs.supabase-cli

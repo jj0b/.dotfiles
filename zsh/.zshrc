@@ -111,9 +111,10 @@ alias cs='vim ~/.dotfiles/cheatsheet.md'
 alias tg='templ generate'
 alias dcu 'docker compose up --build'
 alias dcd 'docker compose down'
-alias dr='darwin-rebuild switch --flake ~/.dotfiles/nix#zen'
-alias dr-update='nix flake update --flake ~/.dotfiles/nix && darwin-rebuild switch --flake ~/.dotfiles/nix#zen'
-alias dr-rollback='darwin-rebuild switch --rollback'
+# nix-darwin: system activation must run as root (sudo).
+alias dr='sudo darwin-rebuild switch --flake ~/.dotfiles/nix#zen'
+alias dr-update='nix flake update --flake ~/.dotfiles/nix && sudo darwin-rebuild switch --flake ~/.dotfiles/nix#zen'
+alias dr-rollback='sudo darwin-rebuild switch --rollback'
 
 # Shell integrations
 eval "$(fzf --zsh)"

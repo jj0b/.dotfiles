@@ -101,7 +101,7 @@ clear search: C-l
 <Ctrl-W>+h/j/k/l - Moves the cursor to left/bottom/top/right
 
 :vsplit <filename> - Split window vertically
-:split <filename> - Split window horiontally
+:split <filename> - Split window horizontally
 :new [filename] - Create new window
 
 #### tabs
@@ -113,109 +113,103 @@ clear search: C-l
 :tablast - Go to last tab
 :tabfirst - Go to first tab
 
-### custom
+### LazyVim (default `<leader>` is space)
 
-#### normal mode
+Full list: https://www.lazyvim.org/keymaps — press `<leader>` and pause to open **which-key**.
 
-move text up: A-j
-move text down: A-k
+#### often used
 
-choose buffer: gb
+- find files (repo root): `<leader>ff`
+- find files (cwd): `<leader>fF`
+- grep / live grep (root): `<leader>/` or `<leader>sg`
+- grep (cwd): `<leader>sG`
+- buffer picker: `<leader>,` or `<leader>fb`
+- file explorer (Snacks): `<leader>e` (root), `<leader>E` (cwd)
+- Mason (install LSP/formatters): `<leader>cm` or `:Mason`
+- Lazy (plugins): `<leader>l` or `:Lazy`
+- LazyVim extras: `:LazyExtras` (or edit `lazyvim.json`)
+- prev / next buffer: `[b` / `]b` or `<S-h>` / `<S-l>`
+- window focus: `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>`
+- split below / right: `<leader>-`, `<leader>|`
+- delete window: `<leader>wd`
+- move line down / up: `<A-j>`, `<A-k>` (normal / insert / visual)
+- format buffer / selection: `<leader>cf`
 
-open new tab: to <file_name>
-close tab: tc
-next tab: tn
-previous tab: tp
-last tab: tl
-first tab: tf
+#### tabs (which-key under `<leader><tab>`)
 
-split horizontal: ss
-split vertical: sv
-toggle between open windows: <space>
-move between windows: s + hjkl
-resize window: C-w + arrows
+LazyVim groups tab keys under `<leader><tab>` (new / close / next / prev / last / first, etc.). Press `<leader><tab>` and read the popup.
 
-move between windows: <leader>h, <leader>j, <leader>k, <leader>l
-resize windows: C-Up, C-Down, C-Left, C-Right
-navigate buffers, next: S-l
-navigate buffers, previous: S-h
+### lazy.nvim (plugins — not Packer)
 
-### source plugins with Packer
+- plugin UI: `:Lazy` (sync, update, pin)
+- extras list: `:LazyExtras`
+- reload current file as config: `:source %` (or `so %`)
 
-source file: so %
-install Packer plugins: PackerInstall
+### mini.surround (LazyVim default — not nvim-surround)
 
-### nvim-treesitter
+Prefix is **`gs`** (see `:h MiniSurround`).
 
-provides better syntax highlighting
-install language: TSInstall <language>
-list languages and install status: TSInstallInfo
-update installed languages: TSUpdate
+| Action | Keys (typical) |
+|--------|----------------|
+| add surrounding | `gsa` + motion + char |
+| delete surrounding | `gsd` |
+| replace surrounding | `gsr` |
+| find / highlight surrounding | `gsf` / `gsF` / `gsh` |
 
-### nvim-surround
+### find / grep / lists (Snacks picker by default)
 
-#### Old text -- Command -- New text
+Telescope-style `;f` mappings are **not** default. Use `<leader>f…` / `<leader>s…` above, or `:Telescope` only if you enable that extra.
 
-surr*ound_words ysiw) (surround_words)
-*make strings ys$" "make strings"
-[delete ar*ound me!] ds] delete around me!
-remove <b>HTML t*ags</b> dst remove HTML tags
-'change quot*es' cs'" "change quotes"
-<b>or tag* types</b> csth1<CR> <h1>or tag types</h1>
-delete(functi*on calls) dsf function calls
-
-### telescope
-
-find files: ;f
-live grep: ;r
-buffers: \\
-help tags: ;t
-resume: ;;
-diagnostics: ;e
-
-#### telescope-browser
-
-file browser: sf
-open file: o
-create file: c
-rename file: r
-delete file: d
-toggle hidden files: h
+- diagnostics (workspace): `<leader>sd`; buffer: `<leader>sD`
+- resume last picker: `<leader>sR`
+- help: `<leader>sh`
 
 ## tmux
 
-### plugins with tpm (https://github.com/tmux-plugins/tpm)
+Config: `tmux/.config/tmux/tmux.conf` (stows to `~/.config/tmux/tmux.conf`).
 
-install plugins: <prefix> I
-update plugins: <prefix> U
-remove plugins not on list: <prefix> alt u
+### prefix
+
+**`<prefix>` = Ctrl+Space** (not the default `C-b`).
 
 ### panes
 
-split pane vertical: <prefix> "
-split pane horizontal: <prefix> %
-change pane: <prefix> h, <prefix> j, <prefix> k, <prefix> l
-toggle pane full screen: <prefix> z
-close pane immediately: C-d
-close pane with confirmation: <prefix> x
-resize panes: <prefix> C-k, C-j, C-h, C-l
+- split with **new pane below** (tmux `split-window -v`): `<prefix> "`
+- split with **new pane to the right** (tmux `split-window -h`): `<prefix> %`
+- both splits open in the **current pane’s working directory**
+- move focus (**no prefix**, [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) — tmux passes keys through when a pane is Neovim): `C-h`, `C-j`, `C-k`, `C-l`
+- zoom / unzoom current pane (tmux default): `<prefix> z`
+- close pane (**confirm**): `<prefix> x`
+- kill **all other** panes (**confirm**): `<prefix> e`
+- exit shell in pane (usual): `C-d`
 
-### windows
+### other bindings from your config
 
-new window: <prefix> c
-previous window: <prefix> p
-next window: <prefix> n
-go to window: <prefix> <number>
-rename current window: <prefix> ,
-close window: <prefix> &
+- reload config: `<prefix> r`
+- **macOS** `open` on pane’s cwd: `<prefix> o`
+- **lazygit** in a popup (`80%` size): `<prefix> g`
 
-### sessions
+### copy mode (vi)
 
-list sessions: tmux ls
-attach to session: tmux attach -t <number || session-name>
-detach from current session: <prefix> d
-start new named session: tmux new -s <session-name>
-rename session: tmux rename-session -t <old-number || old-name> <new-name>
-kill current session: <prefix> :kill-session
-kill other session: tmux kill-session -t <other-session>
-kill all sessions: tmux kill-server
+- enter copy mode: `<prefix> [`  
+- then: `v` start selection, `C-v` rectangle, `y` yank and exit
+
+### windows & sessions (mostly tmux defaults)
+
+Windows start at index **1** (`base-index 1`); `renumber-windows` is on.
+
+- new window: `<prefix> c`
+- previous / next: `<prefix> p` / `<prefix> n`
+- go to window: `<prefix> <number>`
+- rename: `<prefix> ,`
+- close: `<prefix> &`
+
+Sessions:
+
+- list: `tmux ls`
+- attach: `tmux attach -t <name-or-number>`
+- detach: `<prefix> d`
+- new named: `tmux new -s <name>`
+- rename: `tmux rename-session -t <old> <new>`
+- kill session: `<prefix> :kill-session` (command mode) or `tmux kill-session -t <name>`
+- kill server: `tmux kill-server`
