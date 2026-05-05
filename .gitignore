@@ -1,3 +1,7 @@
+# Nix build symlinks (nix-build / nix build output in cwd — points into /nix/store)
+result
+result-*
+
 # tmux specific ignores
 tmux/.config/tmux/plugins
 tmux/.config/tmux/resurrect

@@ -1,8 +1,8 @@
 # .dotfiles
 
-Note that if you are not me and are wanting to use my dotfiles, that before installation you will want to edit your name and email address in `git/.gitconfig` to be your own. Also note that my `flake` has the name `zen` but you can update that in the `flake` to whatever you want, then make sure to use your new name when calling `darwin-rebuild`. (see below
+Note that if you are not me and are wanting to use my dotfiles, that before installation you will want to edit your name and email address in `git/.gitconfig` to be your own. Also note that my `flake` has the name `zen` but you can update that in the `flake` to whatever you want, then make sure to use your new name when calling `darwin-rebuild` (see below).
 
-This repo contains my dotfiles for `zsh` (with `p10k`), `tmux`, `nvim`, `git`, and `ghostty`, as well as a `nix` `flake` to fully configure my macOS system for development. You can edit the flake to install the nixpks, homebrew formulae, casks, or taps that yuo want, as well as configure your macOS systems preferences.
+This repo contains my dotfiles for `zsh` (with `p10k`), `tmux`, Neovim ([LazyVim](https://www.lazyvim.org/)), `git`, and `ghostty`, as well as a `nix` `flake` to fully configure my macOS system for development. You can edit the flake to install the nixpkgs, homebrew formulae, casks, or taps that you want, as well as configure your macOS system preferences.
 
 Currently `nix` `flakes` aren't usable if they are symlinked so it is not possible to `stow` the `nix` folder. Instead my current setup is to just keep my `nix` folder in my `.dotfiles` folder and to just run the `darwin-rebuild` command on it there.
 
@@ -10,7 +10,7 @@ Once `nix` has installed all the prerequisites and configured the system then th
 
 ## Install nix
 
-I recommend installing `nix `using [Determinate](https://github.com/DeterminateSystems/nix-installer) because it makes unintalling `nix `easy, something that is not true of other installation methods.
+I recommend installing Nix using [Determinate](https://github.com/DeterminateSystems/nix-installer) because it makes uninstalling Nix easy, something that is not true of other installation methods.
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
@@ -21,7 +21,7 @@ When answering the questions during `nix` installation choose to only install `n
 
 ## Use the flake
 
-To bootstrip nix-darwin, the first time you use your flake you do:
+To bootstrap nix-darwin, the first time you use your flake you do:
 
 ```bash
 nix run nix-darwin/master#darwin-rebuild -- switch --flake ~/.dotfiles/nix#zen
@@ -81,9 +81,11 @@ cd ~/.dotfiles
 ./install.sh
 ```
 
-## Neovim
+## Neovim (LazyVim)
 
-I use the [NvChad](https://nvchad.com/docs/quickstart/install) starter for my `nvim` config. When you first open nvim `Lazy` should install all the plugins automatically but you need to manually run `MasonInstallAll `for all the `LSP` stuff.
+Neovim lives under `nvim/.config/nvim` and uses [LazyVim](https://www.lazyvim.org/) on top of [`lazy.nvim`](https://github.com/folke/lazy.nvim). Enabled extras and defaults are recorded in [`lazyvim.json`](nvim/.config/nvim/lazyvim.json) (language packs, formatting, linting, tests, and so on).
+
+On first launch, run `nvim` and let the plugin manager finish syncing. For language servers and other tools, use `:Mason` and install what you need; LazyVim’s docs cover the [full install path](https://www.lazyvim.org/installation) if you are setting up from scratch on another machine.
 
 ## Uninstalling nix
 

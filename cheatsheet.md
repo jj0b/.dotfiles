@@ -139,26 +139,24 @@ Full list: https://www.lazyvim.org/keymaps — press `<leader>` and pause to ope
 
 LazyVim groups tab keys under `<leader><tab>` (new / close / next / prev / last / first, etc.). Press `<leader><tab>` and read the popup.
 
-### lazy.nvim (plugins — not Packer)
+### lazy.nvim (plugins)
 
 - plugin UI: `:Lazy` (sync, update, pin)
 - extras list: `:LazyExtras`
 - reload current file as config: `:source %` (or `so %`)
 
-### mini.surround (LazyVim default — not nvim-surround)
+### mini.surround (LazyVim default)
 
 Prefix is **`gs`** (see `:h MiniSurround`).
 
-| Action | Keys (typical) |
-|--------|----------------|
-| add surrounding | `gsa` + motion + char |
-| delete surrounding | `gsd` |
-| replace surrounding | `gsr` |
+| Action                       | Keys (typical)        |
+| ---------------------------- | --------------------- |
+| add surrounding              | `gsa` + motion + char |
+| delete surrounding           | `gsd`                 |
+| replace surrounding          | `gsr`                 |
 | find / highlight surrounding | `gsf` / `gsF` / `gsh` |
 
 ### find / grep / lists (Snacks picker by default)
-
-Telescope-style `;f` mappings are **not** default. Use `<leader>f…` / `<leader>s…` above, or `:Telescope` only if you enable that extra.
 
 - diagnostics (workspace): `<leader>sd`; buffer: `<leader>sD`
 - resume last picker: `<leader>sR`
@@ -191,7 +189,7 @@ Config: `tmux/.config/tmux/tmux.conf` (stows to `~/.config/tmux/tmux.conf`).
 
 ### copy mode (vi)
 
-- enter copy mode: `<prefix> [`  
+- enter copy mode: `<prefix> [`
 - then: `v` start selection, `C-v` rectangle, `y` yank and exit
 
 ### windows & sessions (mostly tmux defaults)
