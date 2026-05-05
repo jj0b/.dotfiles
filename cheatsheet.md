@@ -64,7 +64,7 @@ select word and change multiple instances: \*cgn<foo>Esc then . to change other 
 
 ### edit multiple lines
 
-1. go into visual block mode with C-v
+1. go into visual line mode with V
 2. use hjkl to select lines
 3. insert with S-i
 4. <esc> to change all lines
@@ -115,7 +115,7 @@ clear search: C-l
 
 ### LazyVim (default `<leader>` is space)
 
-Full list: https://www.lazyvim.org/keymaps — press `<leader>` and pause to open **which-key**.
+Full list: <https://www.lazyvim.org/keymaps> — press `<leader>` and pause to open **which-key**.
 
 #### often used
 
