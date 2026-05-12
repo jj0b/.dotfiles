@@ -61,6 +61,10 @@
           pkgs.gnupg
           pkgs.doppler
           pkgs.supabase-cli
+          pkgs.python313
+          pkgs.poetry
+          pkgs.pulumi
+          pkgs.awscli2
         ];
 
       homebrew = {
