@@ -1,0 +1,5 @@
+# Identity for Anthos repos (included when .git is under ~/Code/Anthos/).
+
+[user]
+	name = Jason Jōb
+	email = jason@anthos.systems

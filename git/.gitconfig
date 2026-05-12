@@ -1,6 +1,11 @@
 [user]
 	name = Jason Jōb
 	email = jason.allan.job@gmail.com
+
+# Anthos repos: use work name/email for anything cloned under this tree.
+[includeIf "gitdir:~/Code/Anthos/"]
+	path = .gitconfig-anthos
+
 [core]
 	excludesfile = ~/.gitignore_global
   editor = nvim
