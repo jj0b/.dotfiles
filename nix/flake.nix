@@ -63,6 +63,7 @@
           pkgs.supabase-cli
           pkgs.python313
           pkgs.poetry
+          pkgs.dotenv-cli
           pkgs.julia-bin
           pkgs.pulumi
           pkgs.awscli2
