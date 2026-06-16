@@ -46,6 +46,7 @@
           pkgs.lsd
           pkgs.bat
           pkgs.fzf
+          pkgs.zoxide
           pkgs.ripgrep
           pkgs.fd
           pkgs.coreutils

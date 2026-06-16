@@ -118,7 +118,7 @@ alias dr-rollback='sudo darwin-rebuild switch --rollback'
 
 # Shell integrations
 eval "$(fzf --zsh)"
-# eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 export BAT_THEME="Nord"
 
