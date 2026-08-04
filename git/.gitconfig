@@ -3,7 +3,7 @@
 	email = jason.allan.job@gmail.com
 
 # Anthos repos: use work name/email for anything cloned under this tree.
-[includeIf "gitdir:~/Code/Anthos/"]
+[includeIf "gitdir/i:~/Code/anthos/"]
 	path = .gitconfig-anthos
 
 [core]
