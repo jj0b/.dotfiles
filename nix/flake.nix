@@ -81,6 +81,7 @@
 
         brews = [
           "bun"
+          "gh"
           "nvm"
           "pnpm"
           "stripe-cli"
