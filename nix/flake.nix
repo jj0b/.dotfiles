@@ -91,6 +91,7 @@
         casks = [
           "qlmarkdown"
           "git-credential-manager"
+          "ngrok"
         ];
 
         onActivation.cleanup = "zap";
