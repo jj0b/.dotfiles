@@ -67,6 +67,7 @@
           pkgs.dotenv-cli
           pkgs.julia-bin
           pkgs.pulumi
+          pkgs.pulumiPackages.pulumi-python
           pkgs.awscli2
         ];
 
