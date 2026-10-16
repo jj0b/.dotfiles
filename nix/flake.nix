@@ -1,5 +1,5 @@
 {
-  description = "zen nix-darwin system flake";
+  description = "zen nix-darwin and Linux home-manager flake";
 
   inputs = {
     # Neovim in `environment.systemPackages` comes from this pin (pkgs.neovim).
@@ -23,51 +23,82 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
-      flake = false;
-    };
+    # Tracks nixpkgs-unstable. Omarchy is Arch, so Linux uses home-manager
+    # rather than a NixOS configuration.
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, home-manager }:
   let
+    # Tools that exist in nixpkgs on both macOS and Linux.
+    commonPackages = pkgs: [
+      pkgs.neovim
+      pkgs.tmux
+      pkgs.stow
+      pkgs.lsd
+      pkgs.bat
+      pkgs.fzf
+      pkgs.zoxide
+      pkgs.ripgrep
+      pkgs.fd
+      pkgs.coreutils
+      pkgs.lazygit
+      pkgs.go
+      pkgs.go-migrate
+      pkgs.go-task
+      pkgs.rustc
+      pkgs.cargo
+      pkgs.rust-analyzer
+      pkgs.tmuxPlugins.sensible
+      pkgs.tmuxPlugins.yank
+      pkgs.gnupg
+      pkgs.doppler
+      pkgs.supabase-cli
+      pkgs.python313
+      pkgs.poetry
+      pkgs.dotenv-cli
+      pkgs.julia-bin
+      pkgs.pulumi
+      pkgs.pulumiPackages.pulumi-python
+      pkgs.awscli2
+    ];
+
+    # Homebrew formulae with nixpkgs builds. macOS keeps installing these
+    # through Homebrew; Linux has no Homebrew in this flake.
+    linuxPackages = pkgs: [
+      pkgs.bun
+      pkgs.gh
+      pkgs.nodejs
+      pkgs.pnpm
+      pkgs.stripe-cli
+    ];
+
+    mkLinuxHome = system: home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      modules = [
+        ({ pkgs, ... }: {
+          home.username = "jason";
+          home.homeDirectory = "/home/jason";
+          # Set once, when this profile is first created. Do not bump it on
+          # later home-manager upgrades.
+          home.stateVersion = "26.05";
+          home.packages = commonPackages pkgs ++ linuxPackages pkgs;
+          programs.home-manager.enable = true;
+        })
+      ];
+    };
+
     configuration = { pkgs, ... }: {
 
       nixpkgs.config.allowUnfree = true;
 
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [ pkgs.neovim
-          pkgs.tmux
-          pkgs.stow
-          pkgs.lsd
-          pkgs.bat
-          pkgs.fzf
-          pkgs.zoxide
-          pkgs.ripgrep
-          pkgs.fd
-          pkgs.coreutils
-          pkgs.lazygit
-          pkgs.go
-          pkgs.go-migrate
-          pkgs.go-task
-          pkgs.rustc
-          pkgs.cargo     
-          pkgs.rust-analyzer
-          pkgs.tmuxPlugins.sensible
-          pkgs.tmuxPlugins.yank
-          pkgs.gnupg
-          pkgs.doppler
-          pkgs.supabase-cli
-          pkgs.python313
-          pkgs.poetry
-          pkgs.dotenv-cli
-          pkgs.julia-bin
-          pkgs.pulumi
-          pkgs.pulumiPackages.pulumi-python
-          pkgs.awscli2
-        ];
+      environment.systemPackages = commonPackages pkgs;
 
       homebrew = {
         enable = true;
@@ -75,13 +106,11 @@
         taps = [
           "homebrew/core"
           "homebrew/cask"
-          "homebrew/bundle"
         ];
 
         brews = [
           "bun"
           "gh"
-          "nvm"
           "pnpm"
           "stripe-cli"
           "supabase"
@@ -145,8 +174,14 @@
     };
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#zen
+    # macOS: darwin-rebuild switch --flake ~/.dotfiles/nix#zen
+    #
+    # Linux, including Omarchy (x86_64). Install Nix, then:
+    #   nix run github:nix-community/home-manager -- switch --flake ~/.dotfiles/nix#jason
+    # Later switches can use the home-manager that profile installed:
+    #   home-manager switch --flake ~/.dotfiles/nix#jason
+    # ARM Linux uses ~/.dotfiles/nix#jason-aarch64.
+    # Dotfiles stay with install.sh (stow). This does not replace Omarchy's configs.
     darwinConfigurations."zen" = nix-darwin.lib.darwinSystem {
       modules = [ 
         configuration
@@ -154,6 +189,10 @@
         {
           nix-homebrew = {
             enable = true;
+            # ~/.zshrc already runs `brew shellenv`. The default integration
+            # writes another one into /etc/zshrc, which duplicates PATH in
+            # nested shells. Takes effect on the next darwin-rebuild.
+            enableZshIntegration = false;
             # Apple Silicon Only
             enableRosetta = true;
             # User owning the Homebrew prefix
@@ -162,13 +201,17 @@
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
-              "homebrew/homebrew-bundle" = homebrew-bundle;
             };
 
             mutableTaps = false;
           };
         }
       ];
+    };
+
+    homeConfigurations = {
+      jason = mkLinuxHome "x86_64-linux";
+      jason-aarch64 = mkLinuxHome "aarch64-linux";
     };
   };
 }

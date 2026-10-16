@@ -16,31 +16,15 @@ else
   export HOMEBREW_PREFIX="/usr/local"
 fi
 
-# Initialize Homebrew if installed
-if [[ -f "$HOMEBREW_PREFIX/bin/brew" ]]; then
+# Initialize Homebrew if installed. `brew shellenv` always prepends its bin
+# directory, and Cursor starts a second login shell with the environment
+# captured from the first, so only run it when Homebrew is not already on PATH.
+if [[ -f "$HOMEBREW_PREFIX/bin/brew" && ":$PATH:" != *":$HOMEBREW_PREFIX/bin:"* ]]; then
   eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 fi
 
-# Include Homebrew in the path
-export PATH="$HOMEBREW_PREFIX/bin:$PATH"
-
-# Node Version Manager (NVM) Setup
-if [ -n "$TMUX" ]; then
-  if [ -f "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]; then
-    source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
-  fi
-fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # Load NVM
-[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion"  # Load NVM Bash Completion
-
-# Include Deno Version Manager in the path
-export DVM_DIR="/Users/jason/.dvm"
-export PATH="$DVM_DIR/bin:$PATH"
-
 # Include Go binaries to the path
-export PATH="$PATH:$HOME/go/bin"
+[[ ":$PATH:" == *":$HOME/go/bin:"* ]] || export PATH="$PATH:$HOME/go/bin"
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -122,3 +106,6 @@ eval "$(zoxide init zsh)"
 
 export BAT_THEME="Nord"
 
+
+# Vite+ bin (https://viteplus.dev)
+. "/Users/jason/.config/vite-plus/env"
