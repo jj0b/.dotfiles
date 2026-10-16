@@ -11,6 +11,10 @@
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    # nix-homebrew's default brew (5.1.7) cannot load current homebrew-core
+    # formulae (`post_install_steps`, patch `file`). Keep brew current with the tap.
+    nix-homebrew.inputs.brew-src.url = "github:Homebrew/brew/7.0.9";
+    nix-homebrew.inputs.brew-src.flake = false;
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -23,15 +27,9 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
-    oven-sh-bun = {
-      url = "github:oven-sh/homebrew-bun";
-      flake = false;
-    };
-
-
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, oven-sh-bun }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle }:
   let
     configuration = { pkgs, ... }: {
 
@@ -87,6 +85,10 @@
           "pnpm"
           "stripe-cli"
           "supabase"
+          # Vite+ (`vp`, `vpr`, `vpx`). nixpkgs has no package yet (`pkgs.vp` is an
+          # unrelated image viewer; the vite-plus PR is still open), so this comes
+          # from the locked homebrew-core tap. `vp upgrade` defers to Homebrew.
+          "vite-plus"
         ];
         
         casks = [
@@ -96,8 +98,10 @@
         ];
 
         onActivation.cleanup = "zap";
+        # Stay on the locked taps. Upgrade still runs on every activation, so a
+        # plain `dr` catches formulae and casks up after the lock moves.
         onActivation.autoUpdate = false;
-        onActivation.upgrade = false;
+        onActivation.upgrade = true;
       };
 
       system.defaults = {
@@ -159,7 +163,6 @@
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
               "homebrew/homebrew-bundle" = homebrew-bundle;
-              "oven-sh/homebrew-bun" = oven-sh-bun;
             };
 
             mutableTaps = false;

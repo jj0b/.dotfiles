@@ -37,7 +37,7 @@ Or you can use the alias I added in the `~/.zshrc` file, `dr`.
 
 ### Stable update workflow (deterministic rebuilds)
 
-With `homebrew.onActivation.autoUpdate = false` and `homebrew.onActivation.upgrade = false`, your rebuilds stay deterministic unless you intentionally update inputs.
+Homebrew stays on the locked taps because `homebrew.onActivation.autoUpdate = false`. `homebrew.onActivation.upgrade = true` upgrades installed formulae and casks to those locked versions on activation, including a plain `dr` after the lock has moved.
 
 1. Review current state:
 
