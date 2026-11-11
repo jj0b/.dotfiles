@@ -2,7 +2,7 @@
 
 Note that if you are not me and are wanting to use my dotfiles, that before installation you will want to edit your name and email address in `git/.gitconfig` to be your own. Also note that my `flake` has the name `zen` but you can update that in the `flake` to whatever you want, then make sure to use your new name when calling `darwin-rebuild` (see below).
 
-This repo contains my dotfiles for `zsh` (with `p10k`), `tmux`, Neovim ([LazyVim](https://www.lazyvim.org/)), `git`, and `ghostty`, as well as a `nix` `flake` to fully configure my macOS system for development. You can edit the flake to install the nixpkgs, homebrew formulae, casks, or taps that you want, as well as configure your macOS system preferences.
+This repo contains my dotfiles for `zsh` (with `p10k`), `tmux`, Neovim ([LazyVim](https://www.lazyvim.org/)), `git`, `ghostty`, and my personal Cursor skills (`~/.cursor/skills`), as well as a `nix` `flake` to fully configure my macOS system for development. You can edit the flake to install the nixpkgs, homebrew formulae, casks, or taps that you want, as well as configure your macOS system preferences.
 
 Currently `nix` `flakes` aren't usable if they are symlinked so it is not possible to `stow` the `nix` folder. Instead my current setup is to just keep my `nix` folder in my `.dotfiles` folder and to just run the `darwin-rebuild` command on it there.
 
@@ -80,6 +80,8 @@ With all the dependencies installed you can now install the dotfiles with:
 cd ~/.dotfiles
 ./install.sh
 ```
+
+If a machine already has a real `~/.cursor/skills` directory, stow will refuse to replace it. Move any skills worth keeping into `cursor/.cursor/skills/`, delete `~/.cursor/skills`, then run `stow cursor`.
 
 ## Neovim (LazyVim)
 

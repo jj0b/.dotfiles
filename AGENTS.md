@@ -28,7 +28,9 @@ nix eval .#homeConfigurations.jason.config.home.homeDirectory
 
 ## Stow
 
-Top-level packages are `ghostty`, `git`, `lsd`, `nvim`, `tmux`, and `zsh`. `install.sh` stows those and nothing else. Do not stow `nix/`. A flake path that is a symlink does not work.
+Top-level packages are `cursor`, `ghostty`, `git`, `lsd`, `nvim`, `tmux`, and `zsh`. `install.sh` stows those and nothing else. Do not stow `nix/`. A flake path that is a symlink does not work.
+
+`cursor` holds only `~/.cursor/skills`, the user's personal Cursor skills. `install.sh` creates `~/.cursor` first so stow links `skills` and not the whole directory. Do not add other `~/.cursor` contents: the rest is Cursor-managed state, extensions, caches, or credentials such as `mcp.json`. Leave `skills-cursor` alone; Cursor ships it.
 
 Those stowed files are the same on macOS and Linux. Put platform-specific system setup in the flake. These existing bits are macOS-only and should stay guarded or untouched unless asked: tmux `bind o` runs `open`, Ghostty sets `macos-option-as-alt`, `zsh/.zshrc` defines `dr`, and `git/.gitconfig` points the credential helper at a macOS path.
 
