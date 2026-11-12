@@ -33,7 +33,7 @@ Use the open workspace path when that repo is in the workspace. Work only in tha
 5. Run Bugbot by following the review-bugbot skill. The head branch must already be checked out. After Bugbot returns, fix the real issues. The review-bugbot instruction to stop after findings does not apply here.
 6. Run the checks for that repo below. Read and follow that repo's `AGENTS.md` before editing. Run the checks again after fixes, including when the review changed no code, so a failing suite is a finding.
 7. Commit fixes on the pull request branch and push. Use `--force-with-lease` only when a rebase rewrote published commits. Update the pull request body when the result no longer matches it.
-8. Finish the attribution check below. The pull request is not done until that check is clean and the repo checks have passed.
+8. The pull request is not done until the repo checks have passed.
 
 ## Repo checks
 
@@ -46,10 +46,3 @@ Components use **semantic** tokens (`bg-card`, `bg-primary`, `text-foreground`, 
 **infra.** Follow `AGENTS.md`. This repo has no test suite. Do not run `pulumi up`. Do not claim a stack was applied.
 
 **amsl.** Follow `AGENTS.md`. Before changing compiler or worker code, read the amsl-development skill it points at. Run `make worker-unit`. When the pull request changes `src/`, also run `make test` and `make coverage` before pushing. If `worker-unit` is cancelled rather than failed, re-run it once before hunting for a cause.
-
-## Cursor attribution
-
-No Cursor attribution anywhere. This is a hard fail, not a preference:
-- PR title, PR body, and every commit message must not contain "Made with Cursor", "Generated with Cursor", "Co-authored-by: Cursor", "Co-authored-by Cursor", or any similar Cursor/tool footer.
-- Write the PR body yourself (HEREDOC). Do not let `gh pr create` append a footer.
-- After the PR exists, run `gh pr view --json body,title` and read the commit messages (`git log`). If any of those strings are present, strip them immediately (`gh pr edit --body-file …`; for an unpushed HEAD commit you authored, amend the message). Do not consider the PR done until they are gone.
